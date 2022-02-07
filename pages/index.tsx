@@ -1,10 +1,16 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import styles from "../styles/Home.module.css";
+import Banner from "../src/component/layout/app/Banner";
+import Notice from "../src/component/layout/app/Notice";
 
 const Home: NextPage = () => {
-  return <></>;
+  return (
+    <>
+      <Banner></Banner>
+      <Notice></Notice>
+    </>
+  );
 };
 
 export default Home;
