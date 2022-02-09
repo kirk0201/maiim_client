@@ -6,6 +6,6 @@ export const GlobalStyle = createGlobalStyle`
 ${reset}
 body {
     background-color: ${theme.body_bg};
-    
+    font-family: "Roboto", sans-serif;
 }
 `;
