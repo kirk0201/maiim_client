@@ -10,14 +10,15 @@ function Button({ children }: LayoutProp) {
 export default Button;
 
 const StyledButton = styled.button`
+  position: absolute;
   background-color: transparent;
   width: 150px;
-  font-size: 18px;
+  font-size: 14px;
   padding: 10px 20px;
-  border: 3px solid black;
+  color: #808080;
+  border: 1px solid #808080;
   border-radius: 6px;
   font-weight: 800;
-  z-index: 2;
   cursor: pointer;
 
   &:hover {
