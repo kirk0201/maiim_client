@@ -1,11 +1,12 @@
-import reset from "styled-reset";
+import { reset } from "styled-reset";
 import { createGlobalStyle } from "styled-components";
-import { theme } from "./theme";
 
 export const GlobalStyle = createGlobalStyle`
-${reset}
+    ${reset}
+    
 body {
-    background-color: ${theme.body_bg};
-    font-family: "Roboto", sans-serif;
+
+    background-color: #fafafa;
+    font-family: "Noto sans KR", sans-serif;
 }
 `;

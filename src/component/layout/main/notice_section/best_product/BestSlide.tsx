@@ -7,7 +7,6 @@ import styled from "styled-components";
 import Image from "next/image";
 
 import React from "react";
-import Button from "../../../../common/Button";
 
 export interface LayoutProp {
   children?: React.ReactNode;
@@ -27,16 +26,16 @@ function BestSlide() {
         <SwiperSlide>
           <div style={{ position: "relative" }}>
             <Image src="/best_product/best1_1.jpg" width={1000} height={500} />
-            <Button01>자세히 보기</Button01>
+            <StyledButton_01>자세히 보기</StyledButton_01>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <Image src="/best_product/best2_2.jpg" width={1000} height={500} />
-          <Button>자세히 보기</Button>
+          <StyledButton_02>자세히 보기</StyledButton_02>
         </SwiperSlide>
         <SwiperSlide>
           <Image src="/best_product/best3_3.jpg" width={1000} height={500} />
-          <Button>자세히 보기</Button>
+          <StyledButton_03>자세히 보기</StyledButton_03>
         </SwiperSlide>
       </StyledSwiper>
     </BestContainer>
@@ -48,16 +47,41 @@ const BestContainer = styled.div`
   position: relative;
   width: 100%;
   overflow-x: hidden;
-  top: 40px;
+  top: 148px;
 `;
-const Button01 = styled(Button)`
+const StyledButton_01 = styled.button`
   position: absolute;
-  top: 0;
-  left: 50;
+  background-color: transparent;
+  width: 130px;
+  font-size: 14px;
+  padding: 10px 20px;
+  color: #aed581;
+  border: 1px solid #aed581;
+  border-radius: 6px;
+  font-weight: 800;
+  z-index: 7;
+  cursor: pointer;
+  top: 300px;
+  left: 590px;
+  &:hover {
+    background-color: #aed581;
+    color: white;
+    transition: 0.7s;
+    border: 1px solid #aed581;
+  }
+`;
+const StyledButton_02 = styled(StyledButton_01)`
+  top: 320px;
+  left: 530px;
+`;
+const StyledButton_03 = styled(StyledButton_01)`
+  top: 345px;
+  left: 530px;
 `;
 
 const StyledSwiper = styled(Swiper)`
   position: relative;
+  padding-top: 10px;
   width: calc(1000px * 3 + 10px);
   margin-left: calc((1000px * 3 + 10px) / -2);
   left: 50%;

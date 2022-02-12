@@ -22,6 +22,7 @@ export default function NoticeBanner() {
 }
 
 const StyledSwiper = styled(Swiper)`
+  position: relative;
   font-size: 20px;
   font-weight: 500;
   width: 300px;
