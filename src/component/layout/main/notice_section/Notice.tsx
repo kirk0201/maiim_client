@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import styled from "styled-components";
-import NoticeBanner from "../../../common/NoticeBanner";
+import NoticeBanner from "./notice_banner/NoticeBanner";
 import BestSlide from "./best_product/BestSlide";
 
 export default function Notice() {
@@ -41,11 +41,10 @@ export default function Notice() {
 }
 const NoticeContainer = styled.div`
   position: relative;
-  top: 148px;
+  top: 146px;
   display: flex;
   z-index: 5;
   font-size: 20px;
-  font-weight: 700;
 `;
 
 const StyledLeft = styled.div`
@@ -62,11 +61,13 @@ const StyledLeftContainer = styled.div`
   color: white;
   padding: 20px 0;
   display: flex;
+  font-weight: 500;
 `;
 
 const StyledRight = styled.div`
   width: 50%;
   background-color: #f6f5ef;
+  font-weight: 700;
   position: relative;
 `;
 

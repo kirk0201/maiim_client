@@ -47,7 +47,7 @@ const BestContainer = styled.div`
   position: relative;
   width: 100%;
   overflow-x: hidden;
-  top: 148px;
+  top: 146px;
 `;
 const StyledButton_01 = styled.button`
   position: absolute;
@@ -63,10 +63,12 @@ const StyledButton_01 = styled.button`
   cursor: pointer;
   top: 300px;
   left: 590px;
+  box-shadow: 5px 5px 5px 1px;
   &:hover {
     background-color: #aed581;
+    box-shadow: none;
     color: white;
-    transition: 0.7s;
+    transition: all 0.7s;
     border: 1px solid #aed581;
   }
 `;

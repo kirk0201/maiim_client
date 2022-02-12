@@ -128,6 +128,7 @@ const HeadContainer = styled.div`
   font-size: 16px;
   font-weight: 500;
   color: #808080;
+  box-shadow: 5px 5px 4px 1px;
 `;
 const ContentContainer = styled.div`
   max-width: 1100px;
@@ -142,6 +143,7 @@ const HeadLi = styled.li`
   list-style: none;
   padding: 20px 20px;
   cursor: pointer;
+
   &:hover {
     transition: all 0.3s;
     background-color: ${({ theme }) => theme.nav_bg};
