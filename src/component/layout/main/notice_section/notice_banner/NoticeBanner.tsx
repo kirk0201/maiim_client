@@ -22,11 +22,11 @@ export default function NoticeBanner() {
 }
 
 const StyledSwiper = styled(Swiper)`
+  display: flex;
+  flex: 1;
   position: relative;
   font-size: 20px;
-  font-weight: 500;
-  width: 300px;
+  width: 100%;
   height: 20px;
-  background-color: red;
-  margin-left: 30px;
+  text-align: end;
 `;

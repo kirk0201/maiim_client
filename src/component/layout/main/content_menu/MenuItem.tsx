@@ -57,7 +57,7 @@ const Container = styled.div`
   height: 100px;
   z-index: 10;
   background-color: ${({ theme }) => theme.nav_bg};
-  top: 148px;
+  top: 146px;
   color: #cfcaca;
   font-size: 16px;
 `;
