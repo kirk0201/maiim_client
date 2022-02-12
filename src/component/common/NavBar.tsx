@@ -125,7 +125,7 @@ const HeadContainer = styled.div`
   width: 100%;
   background-color: ${({ theme }) => theme.container_bg};
   position: fixed;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   color: #808080;
 `;
@@ -146,5 +146,8 @@ const HeadLi = styled.li`
     transition: all 0.3s;
     background-color: ${({ theme }) => theme.nav_bg};
     color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transform: scale(1.1);
   }
 `;

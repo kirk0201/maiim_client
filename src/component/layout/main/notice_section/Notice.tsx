@@ -21,7 +21,7 @@ export default function Notice() {
         </StyledLeft>
         <StyledRight>
           <StyledRightContainer>
-            Best Product
+            <span style={{ color: "#33691e" }}>Best &nbsp;</span> Product
             <StyledArrow>
               <Image
                 src={

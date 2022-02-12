@@ -70,27 +70,27 @@ const ItemContainer = styled.div`
   justify-content: space-between;
 `;
 const ItemUl_01 = styled.ul`
-  width: 144.42px;
+  width: 132.81px;
 `;
 const ItemUl_02 = styled.ul`
   text-align: center;
-  width: 106.25px;
+  width: 98.89px;
   /* 메뉴별 랜더링시 일자정렬을 위한 패딩 값 */
   padding-left: 265px;
 `;
 const ItemUl_03 = styled.ul`
   text-align: center;
-  width: 127.84px;
+  width: 118.09px;
   /* 메뉴별 랜더링시 일자정렬을 위한 패딩 값 */
   padding-left: 490px;
 `;
 const ItemUl_04 = styled.ul`
-  width: 111.28px;
+  width: 103.38px;
   /* 메뉴별 랜더링시 일자정렬을 위한 패딩 값 */
   padding-left: 740px;
 `;
 const ItemUl_05 = styled.ul`
-  width: 127.84px;
+  width: 118.09px;
   text-align: center;
   /* 메뉴별 랜더링시 일자정렬을 위한 패딩 값 */
   padding-left: 973px;
@@ -100,6 +100,7 @@ const ItemLi = styled.li`
   padding: 10px 10px;
   margin-top: 5px;
   cursor: pointer;
+  transition: all 0.5s;
   &:hover {
     transition: all 0.5s;
     color: ${({ theme }) => theme.nav_hover_text};
