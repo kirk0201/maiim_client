@@ -82,18 +82,18 @@ const ItemUl_03 = styled.ul`
   text-align: center;
   width: 118.09px;
   /* 메뉴별 랜더링시 일자정렬을 위한 패딩 값 */
-  padding-left: 490px;
+  padding-left: 495px;
 `;
 const ItemUl_04 = styled.ul`
   width: 103.38px;
   /* 메뉴별 랜더링시 일자정렬을 위한 패딩 값 */
-  padding-left: 740px;
+  padding-left: 745px;
 `;
 const ItemUl_05 = styled.ul`
   width: 118.09px;
   text-align: center;
   /* 메뉴별 랜더링시 일자정렬을 위한 패딩 값 */
-  padding-left: 973px;
+  padding-left: 980px;
 `;
 const ItemLi = styled.li`
   text-align: center;

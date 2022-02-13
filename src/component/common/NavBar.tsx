@@ -24,51 +24,53 @@ function NavBar() {
   });
 
   const mouseOver = (e: any): void => {
-    if (e.target.innerText === "마임 학성지사")
-      setNav({
-        ...nav,
-        menu_1: true,
-        menu_2: false,
-        menu_3: false,
-        menu_4: false,
-        menu_5: false,
-      });
-    if (e.target.innerText === "공지사항")
-      setNav({
-        ...nav,
-        menu_2: true,
-        menu_1: false,
-        menu_3: false,
-        menu_4: false,
-        menu_5: false,
-      });
-    if (e.target.innerText === "마임 매거진")
-      setNav({
-        ...nav,
-        menu_3: true,
-        menu_2: false,
-        menu_1: false,
-        menu_4: false,
-        menu_5: false,
-      });
-    if (e.target.innerText === "마임 제품")
-      setNav({
-        ...nav,
-        menu_4: true,
-        menu_2: false,
-        menu_3: false,
-        menu_1: false,
-        menu_5: false,
-      });
-    if (e.target.innerText === "추천 페이지")
-      setNav({
-        ...nav,
-        menu_5: true,
-        menu_2: false,
-        menu_3: false,
-        menu_4: false,
-        menu_1: false,
-      });
+    switch (e.target.innerText) {
+      case "마임 학성지사":
+        return setNav({
+          ...nav,
+          menu_1: true,
+          menu_2: false,
+          menu_3: false,
+          menu_4: false,
+          menu_5: false,
+        });
+      case "공지사항":
+        return setNav({
+          ...nav,
+          menu_2: true,
+          menu_1: false,
+          menu_3: false,
+          menu_4: false,
+          menu_5: false,
+        });
+      case "마임 매거진":
+        return setNav({
+          ...nav,
+          menu_3: true,
+          menu_2: false,
+          menu_1: false,
+          menu_4: false,
+          menu_5: false,
+        });
+      case "마임 제품":
+        return setNav({
+          ...nav,
+          menu_4: true,
+          menu_2: false,
+          menu_3: false,
+          menu_1: false,
+          menu_5: false,
+        });
+      case "추천 페이지":
+        return setNav({
+          ...nav,
+          menu_5: true,
+          menu_2: false,
+          menu_3: false,
+          menu_4: false,
+          menu_1: false,
+        });
+    }
   };
   const mouseLeave = (e: any): void => {
     setNav({
@@ -129,6 +131,21 @@ const HeadContainer = styled.div`
   font-weight: 500;
   color: #808080;
   box-shadow: 5px 5px 4px 1px;
+  @media (max-width: 767px) {
+    //모바일
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    // 테블릿 세로
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    // 테블릿 가로
+  }
+
+  @media (min-width: 1200px) {
+    // 데스크탑 일반
+  }
 `;
 const ContentContainer = styled.div`
   max-width: 1100px;
