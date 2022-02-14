@@ -18,7 +18,7 @@ interface INav {
 
 function NavBar({ hamburger, mouseOver, mouseLeave, nav }: Iprops) {
   return (
-    <HeadContainer>
+    <HeadContainer onMouseLeave={mouseLeave}>
       <Head>
         {/* Dongle400 Noto sans KR 500 Roboto500 폰트 */}
         <link
@@ -82,6 +82,14 @@ function NavBar({ hamburger, mouseOver, mouseLeave, nav }: Iprops) {
 export default NavBar;
 
 const HeadContainer = styled.div`
+  width: 100%;
+  background-color: ${({ theme }) => theme.container_bg};
+  position: fixed;
+  z-index: 2;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #808080;
+
   @media (max-width: 47.9375em) {
     //모바일
     .isClicked {
@@ -90,54 +98,23 @@ const HeadContainer = styled.div`
     .isUnClicked {
       display: none;
     }
-    z-index: 10;
-    top: 5.625rem;
-    width: 100%;
-    background-color: ${({ theme }) => theme.container_bg};
-    position: fixed;
-    font-size: 0.7rem;
-    font-weight: 500;
-    color: #808080;
-    box-shadow: 5px 5px 4px 1px;
+    top: 9.7vh;
+    box-shadow: 3px 3px 2px 1px;
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
     // 테블릿 세로
-    z-index: 10;
     top: 5.652rem;
-    width: 100%;
-    background-color: ${({ theme }) => theme.container_bg};
-    position: fixed;
-    font-size: 1em;
-    font-weight: 500;
-    color: #808080;
-    box-shadow: 5px 5px 4px 1px;
   }
 
   @media (min-width: 62em) and (max-width: 74.9375em) {
     // 테블릿 가로
-    z-index: 10;
     top: 5.652rem;
-    width: 100%;
-    background-color: ${({ theme }) => theme.container_bg};
-    position: fixed;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #808080;
-    box-shadow: 5px 5px 4px 1px;
   }
 
   @media (min-width: 75em) {
     // 데스크탑 일반
-    z-index: 10;
-    top: 5.625rem;
-    width: 100%;
-    background-color: ${({ theme }) => theme.container_bg};
-    position: fixed;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #808080;
-    box-shadow: 5px 5px 4px 1px;
+    top: 14.6vh;
   }
 `;
 const ContentContainer = styled.div`
@@ -150,11 +127,14 @@ const HeadNav = styled.nav`
   justify-content: space-between;
 `;
 const HeadLi = styled.li`
+  list-style: none;
+  cursor: pointer;
+  text-align: center;
   @media (max-width: 47.9375em) {
     //모바일
-    list-style: none;
-    padding: 2em 1.25em;
-    cursor: pointer;
+    padding: 1rem 0;
+    width: 20%;
+    font-size: 0.6rem;
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
@@ -167,8 +147,6 @@ const HeadLi = styled.li`
 
   @media (min-width: 75em) {
     // 데스크탑 일반
-    list-style: none;
-    cursor: pointer;
     padding: 1.25em 1.25em;
   }
 

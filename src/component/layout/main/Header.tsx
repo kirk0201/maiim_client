@@ -98,22 +98,18 @@ export default function Header() {
       <Container>
         <ContentContainer>
           <ImageContainer>
-            <Image
-              src="/logo.png"
-              width="300px"
-              height="70px"
-              objectFit="none"
-            ></Image>
-            <ImageSpan>학성지사</ImageSpan>
-            <MenuContainer>
-              <Image
-                src="/menu.png"
-                width="40px"
-                height="50px"
-                onClick={onHambugerClick}
-              ></Image>
-            </MenuContainer>
+            <Image src="/logo.png" width="330" height="65"></Image>
           </ImageContainer>
+
+          <TextSpan>학성지사</TextSpan>
+          <MenuContainer>
+            <Image
+              src="/menu.png"
+              width="40"
+              height="50"
+              onClick={onHambugerClick}
+            ></Image>
+          </MenuContainer>
         </ContentContainer>
       </Container>
       <NavBar
@@ -131,26 +127,24 @@ const Container = styled.div`
   z-index: 10;
 `;
 const ContentContainer = styled.div`
+  position: absolute;
   margin: 0 auto;
   background-color: ${({ theme }) => theme.container_bg};
-`;
-
-const ImageContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  position: relative;
-  padding: 0.625em 0;
+  z-index: 10;
 `;
-const ImageSpan = styled.div`
+
+const ImageContainer = styled.div`
   @media (max-width: 47.9375em) {
     //모바일
     display: flex;
-    align-items: flex-end;
-    line-height: 2.5;
-    font-size: 0.5rem;
-    margin-left: -30px;
-    flex: 1;
+    position: relative;
+    padding: 1rem 0;
+    width: 50vw;
+    height: 5vh;
+    z-index: 10;
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
@@ -163,18 +157,51 @@ const ImageSpan = styled.div`
 
   @media (min-width: 75em) {
     // 데스크탑 일반
+    width: 100%;
     display: flex;
-    align-items: flex-end;
-    line-height: 2.5;
+    justify-content: center;
+    position: relative;
+    padding: 0.625em 0;
+    height: 12vh;
+    z-index: 10;
+  }
+`;
+const TextSpan = styled.div`
+  @media (max-width: 47.9375em) {
+    //모바일
+    position: absolute;
+    top: 6vh;
+    right: 16vw;
+    font-size: 0.5rem;
+    z-index: 10;
+  }
+
+  @media (min-width: 48em) and (max-width: 61.9375em) {
+    // 테블릿 세로
+  }
+
+  @media (min-width: 62em) and (max-width: 74.9375em) {
+    // 테블릿 가로
+  }
+
+  @media (min-width: 75em) {
+    // 데스크탑 일반
+    position: absolute;
+    display: flex;
+    top: 12vh;
+    right: 35vw;
     font-size: 0.8rem;
+    z-index: 10;
   }
 `;
 const MenuContainer = styled.div`
   @media (max-width: 47.9375em) {
     //모바일
     position: absolute;
-    top: 1.25em;
-    right: 1.25em;
+    top: 3vh;
+    left: 5vw;
+    width: 7vw;
+    z-index: 10;
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {

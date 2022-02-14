@@ -45,7 +45,24 @@ const BestContainer = styled.div`
   position: relative;
   width: 100%;
   overflow-x: hidden;
-  top: 146px;
+
+  @media (max-width: 47.9375em) {
+    //모바일
+    top: 10vh;
+  }
+
+  @media (min-width: 48em) and (max-width: 61.9375em) {
+    // 테블릿 세로
+  }
+
+  @media (min-width: 62em) and (max-width: 74.9375em) {
+    // 테블릿 가로
+  }
+
+  @media (min-width: 75em) {
+    // 데스크탑 일반
+    top: 22.5vh;
+  }
 `;
 const StyledButton_01 = styled.button`
   @media (max-width: 47.9375em) {

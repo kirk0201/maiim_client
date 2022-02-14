@@ -50,7 +50,7 @@ const Container = styled.div`
   @media (max-width: 47.9375em) {
     //모바일
     position: relative;
-    top: 6.25em;
+    top: 10vh;
 
     .swiper-button-prev::after {
       position: absolute;
