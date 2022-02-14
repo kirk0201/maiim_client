@@ -61,7 +61,7 @@ export default MenuItem;
 
 const Container = styled.div`
   width: 100%;
-  position: absolute;
+  position: relative;
   color: #cfcaca;
 
   height: 15vh;
@@ -69,7 +69,6 @@ const Container = styled.div`
 
   @media (max-width: 47.9375em) {
     //모바일
-    top: 6.9vh;
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
@@ -95,7 +94,7 @@ const Container = styled.div`
         }
         100% {
           z-index: -10;
-          top: 22%;
+          top: 20%;
         }
       }
     }
@@ -107,9 +106,7 @@ const Container = styled.div`
 `;
 
 const ItemContainer = styled.div`
-  width: 1100px;
   margin: 0 auto;
-
   display: flex;
   justify-content: space-between;
 
@@ -122,18 +119,24 @@ const ItemContainer = styled.div`
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
     // 테블릿 세로
+    font-size: 0.8rem;
+    width: 600px;
   }
 
   @media (min-width: 62em) and (max-width: 74.9375em) {
     // 테블릿 가로
+    font-size: 0.8rem;
+    width: 800px;
   }
 
   @media (min-width: 75em) {
     // 데스크탑 일반
     font-size: 0.9rem;
+    width: 1100px;
   }
 `;
 const ItemUl_01 = styled.ul`
+  width: 20vw;
   @media (max-width: 47.9375em) {
     //모바일
 
@@ -143,18 +146,24 @@ const ItemUl_01 = styled.ul`
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
     // 테블릿 세로
+    width: 130px;
   }
 
   @media (min-width: 62em) and (max-width: 74.9375em) {
     // 테블릿 가로
+    width: 130px;
+    padding-left: 20px;
   }
 
   @media (min-width: 75em) {
     // 데스크탑 일반
-    width: 132.81px;
+    width: 130px;
+    padding-left: 23px;
   }
 `;
 const ItemUl_02 = styled.ul`
+  width: 20vw;
+  padding-left: 20vw;
   @media (max-width: 47.9375em) {
     //모바일
 
@@ -165,17 +174,21 @@ const ItemUl_02 = styled.ul`
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
     // 테블릿 세로
+    width: 133px;
+    padding-left: 114px;
   }
 
   @media (min-width: 62em) and (max-width: 74.9375em) {
     // 테블릿 가로
+    width: 133px;
+    padding-left: 173px;
   }
 
   @media (min-width: 75em) {
     // 데스크탑 일반
-    width: 98.89px;
+    width: 133px;
     /* 메뉴별 랜더링시 일자정렬을 위한 패딩 값 */
-    padding-left: 265px;
+    padding-left: 253px;
   }
 `;
 const ItemUl_03 = styled.ul`
@@ -189,17 +202,22 @@ const ItemUl_03 = styled.ul`
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
     // 테블릿 세로
+    width: 133px;
+    padding-left: 233px;
   }
 
   @media (min-width: 62em) and (max-width: 74.9375em) {
     // 테블릿 가로
+    width: 133px;
+    padding-left: 334px;
   }
 
   @media (min-width: 75em) {
     // 데스크탑 일반
-    width: 118.09px;
+    width: 133px;
+
     /* 메뉴별 랜더링시 일자정렬을 위한 패딩 값 */
-    padding-left: 495px;
+    padding-left: 484px;
   }
 `;
 const ItemUl_04 = styled.ul`
@@ -213,17 +231,21 @@ const ItemUl_04 = styled.ul`
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
     // 테블릿 세로
+    width: 133px;
+    padding-left: 355px;
   }
 
   @media (min-width: 62em) and (max-width: 74.9375em) {
     // 테블릿 가로
+    width: 133px;
+    padding-left: 495px;
   }
 
   @media (min-width: 75em) {
     // 데스크탑 일반
-    width: 103.38px;
+    width: 133px;
     /* 메뉴별 랜더링시 일자정렬을 위한 패딩 값 */
-    padding-left: 745px;
+    padding-left: 717px;
   }
 `;
 const ItemUl_05 = styled.ul`
@@ -237,17 +259,21 @@ const ItemUl_05 = styled.ul`
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
     // 테블릿 세로
+    width: 133px;
+    padding-left: 480px;
   }
 
   @media (min-width: 62em) and (max-width: 74.9375em) {
     // 테블릿 가로
+    width: 133px;
+    padding-left: 653px;
   }
 
   @media (min-width: 75em) {
     // 데스크탑 일반
-    width: 118.09px;
+    width: 133px;
     /* 메뉴별 랜더링시 일자정렬을 위한 패딩 값 */
-    padding-left: 980px;
+    padding-left: 947px;
   }
 `;
 const ItemLi = styled.li`
