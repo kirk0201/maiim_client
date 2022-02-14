@@ -5,7 +5,6 @@ export const GlobalStyle = createGlobalStyle`
     ${reset}
     
 body {
-
     background-color: #fafafa;
     font-family: "Noto sans KR", sans-serif;
 }

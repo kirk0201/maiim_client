@@ -15,7 +15,7 @@ export default function Notice() {
       <NoticeContainer>
         <StyledLeft>
           <StyledLeftContainer>
-            공지사항
+            <div className="noticeTitle">공지사항</div>
             <NoticeBanner />
           </StyledLeftContainer>
         </StyledLeft>
@@ -40,28 +40,80 @@ export default function Notice() {
   );
 }
 const NoticeContainer = styled.div`
-  position: relative;
-  top: 146px;
-  display: flex;
-  z-index: 5;
-  font-size: 20px;
+  @media (max-width: 47.9375em) {
+    //모바일
+    position: relative;
+    top: 6.3rem;
+    display: flex;
+    z-index: 5;
+    font-size: 1.25rem;
+  }
+
+  @media (min-width: 48em) and (max-width: 61.9375em) {
+    // 테블릿 세로
+  }
+
+  @media (min-width: 62em) and (max-width: 74.9375em) {
+    // 테블릿 가로
+  }
+
+  @media (min-width: 75em) {
+    // 데스크탑 일반
+
+    position: relative;
+    top: 9.125rem;
+    display: flex;
+    z-index: 5;
+    font-size: 1.25rem;
+  }
 `;
 
 const StyledLeft = styled.div`
   position: relative;
   width: 50%;
   background-color: #333;
+  max-width: 1100px;
 `;
 const StyledLeftContainer = styled.div`
-  position: relative;
-  max-width: 1100px;
-  width: 500px;
-  margin: 0 auto;
-  background-color: #333;
-  color: white;
-  padding: 20px 0;
-  display: flex;
-  font-weight: 500;
+  @media (max-width: 47.9375em) {
+    //모바일
+    position: relative;
+    max-width: 1100px;
+    background-color: #333;
+    color: white;
+    padding: 1.25em 0;
+    display: flex;
+    font-weight: 500;
+    .noticeTitle {
+      display: flex;
+      align-items: center;
+      font-size: 0.7em;
+    }
+  }
+
+  @media (min-width: 48em) and (max-width: 61.9375em) {
+    // 테블릿 세로
+  }
+
+  @media (min-width: 62em) and (max-width: 74.9375em) {
+    // 테블릿 가로
+  }
+
+  @media (min-width: 75em) {
+    // 데스크탑 일반
+    position: relative;
+    max-width: 1100px;
+    width: 31.25em;
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    display: flex;
+    font-weight: 500;
+    width: 100%;
+    .noticeTitle {
+      margin-left: 8em;
+    }
+  }
 `;
 
 const StyledRight = styled.div`
@@ -69,6 +121,7 @@ const StyledRight = styled.div`
   background-color: #f6f5ef;
   font-weight: 700;
   position: relative;
+  display: flex;
 `;
 
 const StyledRightContainer = styled.div`
