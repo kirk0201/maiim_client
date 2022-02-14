@@ -125,7 +125,7 @@ export default function Header() {
     </>
   );
 }
-export const Container = styled.div`
+const Container = styled.div`
   position: fixed;
   width: 100%;
   z-index: 10;
@@ -142,11 +142,32 @@ const ImageContainer = styled.div`
   position: relative;
   padding: 0.625em 0;
 `;
-const ImageSpan = styled.span`
-  display: flex;
-  align-items: flex-end;
-  line-height: 2.5;
-  font-size: 0.75em;
+const ImageSpan = styled.div`
+  @media (max-width: 47.9375em) {
+    //모바일
+    display: flex;
+    align-items: flex-end;
+    line-height: 2.5;
+    font-size: 0.5rem;
+    margin-left: -30px;
+    flex: 1;
+  }
+
+  @media (min-width: 48em) and (max-width: 61.9375em) {
+    // 테블릿 세로
+  }
+
+  @media (min-width: 62em) and (max-width: 74.9375em) {
+    // 테블릿 가로
+  }
+
+  @media (min-width: 75em) {
+    // 데스크탑 일반
+    display: flex;
+    align-items: flex-end;
+    line-height: 2.5;
+    font-size: 0.8rem;
+  }
 `;
 const MenuContainer = styled.div`
   @media (max-width: 47.9375em) {
