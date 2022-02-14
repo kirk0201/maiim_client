@@ -73,6 +73,7 @@ const StyledButton_01 = styled.button`
     font-size: 0.6rem;
     padding: 10px 10px;
     color: #aed581;
+
     border: 1px solid #aed581;
     border-radius: 6px;
     font-weight: 800;
@@ -106,11 +107,14 @@ const StyledButton_01 = styled.button`
     font-size: 14px;
     padding: 10px 20px;
     color: #aed581;
+
     border: 1px solid #aed581;
     border-radius: 6px;
     font-weight: 800;
     z-index: 7;
     cursor: pointer;
+
+
     top: 300px;
     left: 590px;
     box-shadow: 5px 5px 5px 1px;

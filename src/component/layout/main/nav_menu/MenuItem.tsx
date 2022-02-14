@@ -63,6 +63,7 @@ const Container = styled.div`
   width: 100%;
   position: absolute;
   color: #cfcaca;
+
   height: 15vh;
   background-color: ${({ theme }) => theme.nav_bg};
 
@@ -102,6 +103,7 @@ const Container = styled.div`
       display: none;
     }
   }
+
 `;
 
 const ItemContainer = styled.div`
@@ -113,7 +115,9 @@ const ItemContainer = styled.div`
 
   @media (max-width: 47.9375em) {
     //모바일
+
     font-size: 0.6rem;
+
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
@@ -132,7 +136,9 @@ const ItemContainer = styled.div`
 const ItemUl_01 = styled.ul`
   @media (max-width: 47.9375em) {
     //모바일
+
     width: 20vw;
+
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
@@ -151,8 +157,10 @@ const ItemUl_01 = styled.ul`
 const ItemUl_02 = styled.ul`
   @media (max-width: 47.9375em) {
     //모바일
+
     width: 20vw;
     padding-left: 20vw;
+
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
@@ -173,8 +181,10 @@ const ItemUl_02 = styled.ul`
 const ItemUl_03 = styled.ul`
   @media (max-width: 47.9375em) {
     //모바일
+
     width: 20vw;
     padding-left: 40vw;
+
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
@@ -195,8 +205,10 @@ const ItemUl_03 = styled.ul`
 const ItemUl_04 = styled.ul`
   @media (max-width: 47.9375em) {
     //모바일
+
     width: 20vw;
     padding-left: 60vw;
+
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
@@ -217,8 +229,10 @@ const ItemUl_04 = styled.ul`
 const ItemUl_05 = styled.ul`
   @media (max-width: 47.9375em) {
     //모바일
+
     width: 20vw;
     padding-left: 80vw;
+
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {

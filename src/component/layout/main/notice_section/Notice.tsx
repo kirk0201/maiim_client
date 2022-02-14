@@ -149,6 +149,7 @@ const StyledArrow = styled.div`
   position: relative;
   flex-direction: column;
   justify-content: center;
+
   padding-left: 1.5em;
   @media (max-width: 47.9375em) {
     //모바일
@@ -178,4 +179,5 @@ const StyledArrow = styled.div`
       top: 5px;
     }
   }
+
 `;
