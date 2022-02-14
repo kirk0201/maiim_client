@@ -44,7 +44,7 @@ const NoticeContainer = styled.div`
   @media (max-width: 47.9375em) {
     //모바일
     position: relative;
-    top: 6.3rem;
+    top: 10vh;
     display: flex;
     z-index: 5;
     font-size: 1rem;
@@ -64,7 +64,7 @@ const NoticeContainer = styled.div`
     position: relative;
     top: 9.125rem;
     display: flex;
-    z-index: 5;
+
     font-size: 1.25rem;
   }
 `;
@@ -149,5 +149,35 @@ const StyledArrow = styled.div`
   position: relative;
   flex-direction: column;
   justify-content: center;
-  padding-left: 2em;
+
+  padding-left: 1.5em;
+  @media (max-width: 47.9375em) {
+    //모바일
+    animation: arrow 1s linear infinite;
+  }
+
+  @media (min-width: 48em) and (max-width: 61.9375em) {
+    // 테블릿 세로
+  }
+
+  @media (min-width: 62em) and (max-width: 74.9375em) {
+    // 테블릿 가로
+  }
+
+  @media (min-width: 75em) {
+    // 데스크탑 일반
+    &:hover {
+      animation: arrow 1s linear infinite;
+    }
+  }
+
+  @keyframes arrow {
+    0% {
+      top: -5px;
+    }
+    100% {
+      top: 5px;
+    }
+  }
+
 `;
