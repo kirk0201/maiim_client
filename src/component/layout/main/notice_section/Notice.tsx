@@ -21,7 +21,8 @@ export default function Notice() {
         </StyledLeft>
         <StyledRight>
           <StyledRightContainer>
-            <span style={{ color: "#33691e" }}>Best &nbsp;</span> Product
+            <span className="bestText">Best &nbsp;</span>
+            <span className="productText">Product</span>
             <StyledArrow>
               <Image
                 src={
@@ -46,7 +47,7 @@ const NoticeContainer = styled.div`
     top: 6.3rem;
     display: flex;
     z-index: 5;
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
@@ -84,8 +85,12 @@ const StyledLeftContainer = styled.div`
     padding: 1.25em 0;
     display: flex;
     font-weight: 500;
+    height: 2.5em;
+    flex-direction: column;
     .noticeTitle {
       display: flex;
+      justify-content: center;
+      margin: 5px 0;
       align-items: center;
       font-size: 0.7em;
     }
@@ -128,13 +133,21 @@ const StyledRightContainer = styled.div`
   position: relative;
   display: flex;
   margin: 0 auto;
+  width: 100%;
   justify-content: center;
   align-items: center;
+  .bestText {
+    display: block;
+    color: #33691e;
+  }
+  .productText {
+    display: block;
+  }
 `;
 
 const StyledArrow = styled.div`
   position: relative;
   flex-direction: column;
   justify-content: center;
-  padding-left: 50px;
+  padding-left: 2em;
 `;
