@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Head from "next/head";
-import MenuItem from "../layout/main/content_menu/MenuItem";
-
+import MenuItem from "../layout/main/nav_menu/MenuItem";
 interface Iprops {
+  hamburger: boolean;
+  mouseLeave: (e: any) => void;
+  mouseOver: (e: any) => void;
   nav: INav;
 }
 interface INav {
@@ -14,74 +16,7 @@ interface INav {
   menu_5: boolean;
 }
 
-function NavBar() {
-  const [nav, setNav] = useState<INav>({
-    menu_1: false,
-    menu_2: false,
-    menu_3: false,
-    menu_4: false,
-    menu_5: false,
-  });
-
-  const mouseOver = (e: any): void => {
-    switch (e.target.innerText) {
-      case "마임 학성지사":
-        return setNav({
-          ...nav,
-          menu_1: true,
-          menu_2: false,
-          menu_3: false,
-          menu_4: false,
-          menu_5: false,
-        });
-      case "공지사항":
-        return setNav({
-          ...nav,
-          menu_2: true,
-          menu_1: false,
-          menu_3: false,
-          menu_4: false,
-          menu_5: false,
-        });
-      case "마임 매거진":
-        return setNav({
-          ...nav,
-          menu_3: true,
-          menu_2: false,
-          menu_1: false,
-          menu_4: false,
-          menu_5: false,
-        });
-      case "마임 제품":
-        return setNav({
-          ...nav,
-          menu_4: true,
-          menu_2: false,
-          menu_3: false,
-          menu_1: false,
-          menu_5: false,
-        });
-      case "추천 페이지":
-        return setNav({
-          ...nav,
-          menu_5: true,
-          menu_2: false,
-          menu_3: false,
-          menu_4: false,
-          menu_1: false,
-        });
-    }
-  };
-  const mouseLeave = (e: any): void => {
-    setNav({
-      ...nav,
-      menu_1: false,
-      menu_2: false,
-      menu_3: false,
-      menu_4: false,
-      menu_5: false,
-    });
-  };
+function NavBar({ hamburger, mouseOver, mouseLeave, nav }: Iprops) {
   return (
     <HeadContainer>
       <Head>
@@ -91,7 +26,7 @@ function NavBar() {
           rel="stylesheet"
         />
       </Head>
-      <ContentContainer>
+      <ContentContainer className={hamburger ? "isClicked" : "isUnClicked"}>
         <HeadNav onMouseOver={mouseOver}>
           <HeadLi>마임 학성지사</HeadLi>
           <HeadLi>공지사항</HeadLi>
@@ -102,19 +37,44 @@ function NavBar() {
         </HeadNav>
       </ContentContainer>
       {nav.menu_1 && (
-        <MenuItem mouseOver={mouseOver} nav={nav} mouseLeave={mouseLeave} />
+        <MenuItem
+          mouseOver={mouseOver}
+          nav={nav}
+          mouseLeave={mouseLeave}
+          hamburger={hamburger}
+        />
       )}
       {nav.menu_2 && (
-        <MenuItem mouseOver={mouseOver} nav={nav} mouseLeave={mouseLeave} />
+        <MenuItem
+          mouseOver={mouseOver}
+          nav={nav}
+          mouseLeave={mouseLeave}
+          hamburger={hamburger}
+        />
       )}
       {nav.menu_3 && (
-        <MenuItem mouseOver={mouseOver} nav={nav} mouseLeave={mouseLeave} />
+        <MenuItem
+          mouseOver={mouseOver}
+          nav={nav}
+          mouseLeave={mouseLeave}
+          hamburger={hamburger}
+        />
       )}
       {nav.menu_4 && (
-        <MenuItem mouseOver={mouseOver} nav={nav} mouseLeave={mouseLeave} />
+        <MenuItem
+          mouseOver={mouseOver}
+          nav={nav}
+          mouseLeave={mouseLeave}
+          hamburger={hamburger}
+        />
       )}
       {nav.menu_5 && (
-        <MenuItem mouseOver={mouseOver} nav={nav} mouseLeave={mouseLeave} />
+        <MenuItem
+          mouseOver={mouseOver}
+          nav={nav}
+          mouseLeave={mouseLeave}
+          hamburger={hamburger}
+        />
       )}
     </HeadContainer>
   );
@@ -122,33 +82,66 @@ function NavBar() {
 export default NavBar;
 
 const HeadContainer = styled.div`
-  z-index: 10;
-  top: 90px;
-  width: 100%;
-  background-color: ${({ theme }) => theme.container_bg};
-  position: fixed;
-  font-size: 16px;
-  font-weight: 500;
-  color: #808080;
-  box-shadow: 5px 5px 4px 1px;
-  @media (max-width: 767px) {
+  @media (max-width: 47.9375em) {
     //모바일
+    .isClicked {
+      display: block;
+    }
+    .isUnClicked {
+      display: none;
+    }
+    z-index: 10;
+    top: 5.625rem;
+    width: 100%;
+    background-color: ${({ theme }) => theme.container_bg};
+    position: fixed;
+    font-size: 0.9em;
+    font-weight: 500;
+    color: #808080;
+    box-shadow: 5px 5px 4px 1px;
   }
 
-  @media (min-width: 768px) and (max-width: 991px) {
+  @media (min-width: 48em) and (max-width: 61.9375em) {
     // 테블릿 세로
+    z-index: 10;
+    top: 5.652rem;
+    width: 100%;
+    background-color: ${({ theme }) => theme.container_bg};
+    position: fixed;
+    font-size: 1em;
+    font-weight: 500;
+    color: #808080;
+    box-shadow: 5px 5px 4px 1px;
   }
 
-  @media (min-width: 992px) and (max-width: 1199px) {
+  @media (min-width: 62em) and (max-width: 74.9375em) {
     // 테블릿 가로
+    z-index: 10;
+    top: 5.652rem;
+    width: 100%;
+    background-color: ${({ theme }) => theme.container_bg};
+    position: fixed;
+    font-size: 1em;
+    font-weight: 500;
+    color: #808080;
+    box-shadow: 5px 5px 4px 1px;
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: 75em) {
     // 데스크탑 일반
+    z-index: 10;
+    top: 5.625rem;
+    width: 100%;
+    background-color: ${({ theme }) => theme.container_bg};
+    position: fixed;
+    font-size: 1em;
+    font-weight: 500;
+    color: #808080;
+    box-shadow: 5px 5px 4px 1px;
   }
 `;
 const ContentContainer = styled.div`
-  max-width: 1100px;
+  max-width: 68.75em;
   margin: 0 auto;
 `;
 
@@ -158,7 +151,7 @@ const HeadNav = styled.nav`
 `;
 const HeadLi = styled.li`
   list-style: none;
-  padding: 20px 20px;
+  padding: 1.25rem 1.25rem;
   cursor: pointer;
 
   &:hover {

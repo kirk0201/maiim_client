@@ -42,6 +42,10 @@ class MyDocument extends Document {
             name="viewport"
             content="width=device-width, initial-scale=1"
           ></meta>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Dongle&family=Noto+Sans+KR:wght@500&family=Roboto:wght@500&display=swap"
+            rel="stylesheet"
+          />
         </Head>
         <body>
           <Main />

@@ -2,8 +2,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/navigation";
 import styled from "styled-components";
-import SlideImage from "../../common/SlideImage";
+import Image from "next/image";
 
 export default function Banner() {
   return (
@@ -22,31 +23,101 @@ export default function Banner() {
         loop
       >
         <SwiperSlide>
-          <SlideImage src="/banner1.jpg" width="1800px" height="700px" />
+          <StyledSlide>
+            <Image
+              className="test"
+              src="/banner1.jpg"
+              width="1600px"
+              height="900px"
+            />
+          </StyledSlide>
         </SwiperSlide>
         <SwiperSlide>
-          <SlideImage src="/banner2.jpg" width="1800px" height="700px" />
+          <StyledSlide>
+            <Image src="/banner2.jpg" width="1600px" height="900px" />
+          </StyledSlide>
         </SwiperSlide>
         <SwiperSlide>
-          <SlideImage src="/banner3.jpg" width="1800px" height="700px" />
+          <StyledSlide>
+            <Image src="/banner3.jpg" width="1600px" height="900px" />
+          </StyledSlide>
         </SwiperSlide>
       </StyledSwiper>
     </Container>
   );
 }
 const Container = styled.div`
-  position: relative;
-  top: 148px;
+  @media (max-width: 47.9375em) {
+    //모바일
+    position: relative;
+    top: 6.25em;
+
+    .swiper-button-prev::after {
+      position: absolute;
+      display: block;
+      z-index: 11;
+      top: 5.5rem;
+      line-height: 1;
+      margin-top: -2em;
+      cursor: pointer;
+    }
+    .swiper-button-next::after {
+      position: absolute;
+      display: block;
+      z-index: 11;
+      top: 5.5rem;
+      line-height: 1;
+      margin-top: -2em;
+      cursor: pointer;
+    }
+  }
+
+  @media (min-width: 48em) and (max-width: 61.9375em) {
+    // 테블릿 세로
+  }
+
+  @media (min-width: 62em) and (max-width: 74.9375em) {
+    // 테블릿 가로
+  }
+
+  @media (min-width: 75em) {
+    // 데스크탑 일반
+    position: relative;
+    top: 9.25em;
+  }
 `;
 const StyledSwiper = styled(Swiper)`
   position: relative;
 
-  height: 630px;
   .swiper-pagination-bullet-active {
     background-color: white !important;
   }
   .swiper-pagination-bullet {
     opacity: 1;
     background-color: grey;
+  }
+  .swiper-slide-active {
+    height: 300px;
+  }
+`;
+const StyledSlide = styled.div`
+  display: flex;
+  justify-content: center;
+
+  @media (max-width: 47.9375em) {
+    //모바일
+    height: 400px;
+  }
+
+  @media (min-width: 48em) and (max-width: 61.9375em) {
+    // 테블릿 세로
+  }
+
+  @media (min-width: 62em) and (max-width: 74.9375em) {
+    // 테블릿 가로
+  }
+
+  @media (min-width: 75em) {
+    // 데스크탑 일반
   }
 `;

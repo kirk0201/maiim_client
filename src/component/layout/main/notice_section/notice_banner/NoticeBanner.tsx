@@ -22,11 +22,35 @@ export default function NoticeBanner() {
 }
 
 const StyledSwiper = styled(Swiper)`
-  display: flex;
-  flex: 1;
-  position: relative;
-  font-size: 20px;
-  width: 100%;
-  height: 20px;
-  text-align: end;
+  @media (max-width: 47.9375em) {
+    //모바일
+    display: flex;
+    flex: 1;
+    position: relative;
+    font-size: 0.9em;
+    width: 100%;
+
+    line-height: 1.2em;
+    height: 20px;
+    text-align: center;
+  }
+
+  @media (min-width: 48em) and (max-width: 61.9375em) {
+    // 테블릿 세로
+  }
+
+  @media (min-width: 62em) and (max-width: 74.9375em) {
+    // 테블릿 가로
+  }
+
+  @media (min-width: 75em) {
+    // 데스크탑 일반
+    display: flex;
+    flex: 1;
+    position: relative;
+    font-size: 20px;
+    width: 100%;
+    height: 20px;
+    text-align: center;
+  }
 `;
