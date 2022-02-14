@@ -99,7 +99,9 @@ const HeadContainer = styled.div`
     .isUnClicked {
       display: none;
     }
+
     top: 9.7vh;
+
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
@@ -145,6 +147,7 @@ const HeadNav = styled.nav`
   justify-content: space-between;
 `;
 const HeadLi = styled.li`
+
   list-style: none;
   cursor: pointer;
   text-align: center;
@@ -156,6 +159,7 @@ const HeadLi = styled.li`
     width: 20vw;
     padding: 1.25rem 0;
     font-size: 0.6rem;
+
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
@@ -174,7 +178,9 @@ const HeadLi = styled.li`
 
   @media (min-width: 75em) {
     // 데스크탑 일반
+
     width: 133px;
+
     padding: 1.25em 1.25em;
     /* &:nth-child(1)::before {
       content: "";

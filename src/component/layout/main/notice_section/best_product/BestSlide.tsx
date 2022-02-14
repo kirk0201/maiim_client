@@ -89,6 +89,7 @@ const StyledButton_01 = styled.button`
   }
   @media (max-width: 47.9375em) {
     //모바일
+
     top: 150px;
     left: 270px;
   }
@@ -110,6 +111,7 @@ const StyledButton_01 = styled.button`
     width: 130px;
     font-size: 14px;
     padding: 10px 20px;
+
     top: 300px;
     left: 590px;
   }

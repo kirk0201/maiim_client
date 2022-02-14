@@ -176,6 +176,7 @@ const TextSpan = styled.div`
     right: 16vw;
     font-size: 0.5rem;
     z-index: 10;
+
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
@@ -195,9 +196,11 @@ const TextSpan = styled.div`
   @media (min-width: 75em) {
     // 데스크탑 일반
 
+
     top: 12vh;
     right: 32vw;
     font-size: 0.8rem;
+
   }
 `;
 const MenuContainer = styled.div`
