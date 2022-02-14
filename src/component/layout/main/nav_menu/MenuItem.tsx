@@ -60,7 +60,6 @@ const Container = styled.div`
   background-color: ${({ theme }) => theme.nav_bg};
   top: 146px;
   color: #cfcaca;
-  font-size: 16px;
 `;
 
 const ItemContainer = styled.div`
@@ -69,11 +68,29 @@ const ItemContainer = styled.div`
 
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 47.9375em) {
+    //모바일
+    font-size: 0.7rem;
+  }
+
+  @media (min-width: 48em) and (max-width: 61.9375em) {
+    // 테블릿 세로
+  }
+
+  @media (min-width: 62em) and (max-width: 74.9375em) {
+    // 테블릿 가로
+  }
+
+  @media (min-width: 75em) {
+    // 데스크탑 일반
+    font-size: 0.9rem;
+  }
 `;
 const ItemUl_01 = styled.ul`
   @media (max-width: 47.9375em) {
     //모바일
-    width: 123.472px;
+    width: 92.96px;
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
@@ -92,8 +109,8 @@ const ItemUl_01 = styled.ul`
 const ItemUl_02 = styled.ul`
   @media (max-width: 47.9375em) {
     //모바일
-    width: 92.972px;
-    padding-left: 125px;
+    width: 69.22px;
+    padding-left: 93px;
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
@@ -114,8 +131,8 @@ const ItemUl_02 = styled.ul`
 const ItemUl_03 = styled.ul`
   @media (max-width: 47.9375em) {
     //모바일
-    width: 110.236px;
-    padding-left: 217px;
+    width: 82.66px;
+    padding-left: 162px;
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
@@ -136,8 +153,8 @@ const ItemUl_03 = styled.ul`
 const ItemUl_04 = styled.ul`
   @media (max-width: 47.9375em) {
     //모바일
-    width: 97px;
-    padding-left: 327px;
+    width: 72.36px;
+    padding-left: 243px;
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
@@ -158,8 +175,8 @@ const ItemUl_04 = styled.ul`
 const ItemUl_05 = styled.ul`
   @media (max-width: 47.9375em) {
     //모바일
-    width: 110.236px;
-    padding-left: 428px;
+    width: 82.66px;
+    padding-left: 318px;
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {

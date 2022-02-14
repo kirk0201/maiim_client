@@ -26,7 +26,7 @@ export default function Banner() {
           <StyledSlide>
             <Image
               className="test"
-              src="/banner1.jpg"
+              src="/main01.png"
               width="1600px"
               height="900px"
             />
@@ -34,12 +34,12 @@ export default function Banner() {
         </SwiperSlide>
         <SwiperSlide>
           <StyledSlide>
-            <Image src="/banner2.jpg" width="1600px" height="900px" />
+            <Image src="/main02.png" width="1600px" height="900px" />
           </StyledSlide>
         </SwiperSlide>
         <SwiperSlide>
           <StyledSlide>
-            <Image src="/banner3.jpg" width="1600px" height="900px" />
+            <Image src="/main03.png" width="1600px" height="900px" />
           </StyledSlide>
         </SwiperSlide>
       </StyledSwiper>
@@ -106,7 +106,10 @@ const StyledSlide = styled.div`
 
   @media (max-width: 47.9375em) {
     //모바일
-    height: 400px;
+    height: 300px;
+    image-rendering: -moz-crisp-edges;
+    transform: translateZ(0);
+    backface-visibility: hidden;
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
@@ -119,5 +122,8 @@ const StyledSlide = styled.div`
 
   @media (min-width: 75em) {
     // 데스크탑 일반
+    image-rendering: -moz-crisp-edges;
+    transform: translateZ(0);
+    backface-visibility: hidden;
   }
 `;

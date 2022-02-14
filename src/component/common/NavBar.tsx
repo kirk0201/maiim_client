@@ -95,7 +95,7 @@ const HeadContainer = styled.div`
     width: 100%;
     background-color: ${({ theme }) => theme.container_bg};
     position: fixed;
-    font-size: 0.9em;
+    font-size: 0.7rem;
     font-weight: 500;
     color: #808080;
     box-shadow: 5px 5px 4px 1px;
@@ -121,7 +121,7 @@ const HeadContainer = styled.div`
     width: 100%;
     background-color: ${({ theme }) => theme.container_bg};
     position: fixed;
-    font-size: 1em;
+    font-size: 1rem;
     font-weight: 500;
     color: #808080;
     box-shadow: 5px 5px 4px 1px;
@@ -134,7 +134,7 @@ const HeadContainer = styled.div`
     width: 100%;
     background-color: ${({ theme }) => theme.container_bg};
     position: fixed;
-    font-size: 1em;
+    font-size: 1rem;
     font-weight: 500;
     color: #808080;
     box-shadow: 5px 5px 4px 1px;
@@ -150,9 +150,27 @@ const HeadNav = styled.nav`
   justify-content: space-between;
 `;
 const HeadLi = styled.li`
-  list-style: none;
-  padding: 1.25rem 1.25rem;
-  cursor: pointer;
+  @media (max-width: 47.9375em) {
+    //모바일
+    list-style: none;
+    padding: 2em 1.25em;
+    cursor: pointer;
+  }
+
+  @media (min-width: 48em) and (max-width: 61.9375em) {
+    // 테블릿 세로
+  }
+
+  @media (min-width: 62em) and (max-width: 74.9375em) {
+    // 테블릿 가로
+  }
+
+  @media (min-width: 75em) {
+    // 데스크탑 일반
+    list-style: none;
+    cursor: pointer;
+    padding: 1.25em 1.25em;
+  }
 
   &:hover {
     transition: all 0.3s;
