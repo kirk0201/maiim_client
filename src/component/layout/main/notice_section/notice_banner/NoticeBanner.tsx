@@ -22,17 +22,16 @@ export default function NoticeBanner() {
 }
 
 const StyledSwiper = styled(Swiper)`
+  display: flex;
+  flex: 1;
+  position: relative;
+  width: 100%;
+  height: 20px;
+  text-align: center;
   @media (max-width: 47.9375em) {
     //모바일
-    display: flex;
-    flex: 1;
-    position: relative;
     font-size: 0.9em;
-    width: 100%;
-
     line-height: 1.2em;
-    height: 20px;
-    text-align: center;
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
@@ -45,12 +44,15 @@ const StyledSwiper = styled(Swiper)`
 
   @media (min-width: 75em) {
     // 데스크탑 일반
-    display: flex;
-    flex: 1;
-    position: relative;
-    font-size: 20px;
-    width: 100%;
-    height: 20px;
-    text-align: center;
+    font-size: 1rem;
+    &::before {
+      position: absolute;
+      content: "";
+      top: 0.1vh;
+      left: 5vw;
+      width: 1px;
+      height: 2.5vh;
+      background-color: #808080;
+    }
   }
 `;

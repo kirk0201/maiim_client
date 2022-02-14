@@ -41,31 +41,29 @@ export default function Notice() {
   );
 }
 const NoticeContainer = styled.div`
+  position: relative;
+  display: flex;
   @media (max-width: 47.9375em) {
     //모바일
-    position: relative;
     top: 10vh;
-    display: flex;
     z-index: 5;
     font-size: 1rem;
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
     // 테블릿 세로
+    top: 13vh;
   }
 
   @media (min-width: 62em) and (max-width: 74.9375em) {
     // 테블릿 가로
+    top: 15vh;
   }
 
   @media (min-width: 75em) {
     // 데스크탑 일반
-
-    position: relative;
-    top: 9.125rem;
-    display: flex;
-
-    font-size: 1.25rem;
+    top: 20vh;
+    font-size: 1rem;
   }
 `;
 
@@ -76,15 +74,16 @@ const StyledLeft = styled.div`
   max-width: 1100px;
 `;
 const StyledLeftContainer = styled.div`
+  position: relative;
+  max-width: 1100px;
+  background-color: #333;
+  color: white;
+  padding: 1.25em 0;
+  display: flex;
+  font-weight: 500;
   @media (max-width: 47.9375em) {
     //모바일
-    position: relative;
-    max-width: 1100px;
-    background-color: #333;
-    color: white;
-    padding: 1.25em 0;
-    display: flex;
-    font-weight: 500;
+
     height: 2.5em;
     flex-direction: column;
     .noticeTitle {
@@ -106,14 +105,7 @@ const StyledLeftContainer = styled.div`
 
   @media (min-width: 75em) {
     // 데스크탑 일반
-    position: relative;
-    max-width: 1100px;
-    width: 31.25em;
-    background-color: #333;
-    color: white;
-    padding: 20px 0;
-    display: flex;
-    font-weight: 500;
+
     width: 100%;
     .noticeTitle {
       margin-left: 8em;

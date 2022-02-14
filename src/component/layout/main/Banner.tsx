@@ -47,10 +47,10 @@ export default function Banner() {
   );
 }
 const Container = styled.div`
+  position: relative;
+  top: 10vh;
   @media (max-width: 47.9375em) {
     //모바일
-    position: relative;
-    top: 10vh;
 
     .swiper-button-prev::after {
       position: absolute;
@@ -74,16 +74,18 @@ const Container = styled.div`
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
     // 테블릿 세로
+    top: 13vh;
   }
 
   @media (min-width: 62em) and (max-width: 74.9375em) {
     // 테블릿 가로
+    top: 15vh;
   }
 
   @media (min-width: 75em) {
     // 데스크탑 일반
-    position: relative;
-    top: 9.25em;
+
+    top: 20vh;
   }
 `;
 const StyledSwiper = styled(Swiper)`

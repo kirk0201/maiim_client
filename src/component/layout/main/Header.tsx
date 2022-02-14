@@ -137,39 +137,41 @@ const ContentContainer = styled.div`
 `;
 
 const ImageContainer = styled.div`
+  display: flex;
+  position: relative;
+  justify-content: center;
+  z-index: 10;
   @media (max-width: 47.9375em) {
     //모바일
-    display: flex;
-    position: relative;
+
     padding: 1rem 0;
     width: 50vw;
     height: 5vh;
-    z-index: 10;
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
+    height: 6vh;
     // 테블릿 세로
   }
 
   @media (min-width: 62em) and (max-width: 74.9375em) {
     // 테블릿 가로
+    height: 9vh;
   }
 
   @media (min-width: 75em) {
     // 데스크탑 일반
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    position: relative;
+
     padding: 0.625em 0;
     height: 12vh;
-    z-index: 10;
   }
 `;
 const TextSpan = styled.div`
+  position: absolute;
+
   @media (max-width: 47.9375em) {
     //모바일
-    position: absolute;
+
     top: 6vh;
     right: 16vw;
     font-size: 0.5rem;
@@ -178,20 +180,24 @@ const TextSpan = styled.div`
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
     // 테블릿 세로
+    top: 5vh;
+    right: 23vw;
+    font-size: 0.7rem;
   }
 
   @media (min-width: 62em) and (max-width: 74.9375em) {
     // 테블릿 가로
+    top: 7vh;
+    right: 28vw;
+    font-size: 0.7rem;
   }
 
   @media (min-width: 75em) {
     // 데스크탑 일반
-    position: absolute;
-    display: flex;
+
     top: 12vh;
-    right: 35vw;
+    right: 32vw;
     font-size: 0.8rem;
-    z-index: 10;
   }
 `;
 const MenuContainer = styled.div`
