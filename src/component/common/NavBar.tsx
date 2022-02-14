@@ -95,7 +95,7 @@ const HeadContainer = styled.div`
     width: 100%;
     background-color: ${({ theme }) => theme.container_bg};
     position: fixed;
-    font-size: 0.9em;
+    font-size: 0.9rem;
     font-weight: 500;
     color: #808080;
     box-shadow: 5px 5px 4px 1px;
@@ -121,7 +121,7 @@ const HeadContainer = styled.div`
     width: 100%;
     background-color: ${({ theme }) => theme.container_bg};
     position: fixed;
-    font-size: 1em;
+    font-size: 1rem;
     font-weight: 500;
     color: #808080;
     box-shadow: 5px 5px 4px 1px;
@@ -134,7 +134,7 @@ const HeadContainer = styled.div`
     width: 100%;
     background-color: ${({ theme }) => theme.container_bg};
     position: fixed;
-    font-size: 1em;
+    font-size: 1rem;
     font-weight: 500;
     color: #808080;
     box-shadow: 5px 5px 4px 1px;
