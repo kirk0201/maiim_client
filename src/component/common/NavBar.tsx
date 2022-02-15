@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import Head from "next/head";
 import MenuItem from "../layout/main/nav_menu/MenuItem";
+import { useMediaQuery } from "react-responsive";
+
 interface Iprops {
   hamburger: boolean;
-  mouseLeave: (e: any) => void;
+  mouseLeave: () => void;
   mouseOver: (e: any) => void;
   nav: INav;
 }
@@ -17,25 +19,34 @@ interface INav {
 }
 
 function NavBar({ hamburger, mouseOver, mouseLeave, nav }: Iprops) {
-  return (
-    <HeadContainer onMouseLeave={mouseLeave}>
-      <Head>
-        {/* Dongle400 Noto sans KR 500 Roboto500 폰트 */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Dongle&family=Noto+Sans+KR:wght@500&family=Roboto:wght@500&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
-      <ContentContainer className={hamburger ? "isClicked" : "isUnClicked"}>
-        <HeadNav onMouseOver={mouseOver}>
-          <HeadLi>마임 학성지사</HeadLi>
-          <HeadLi>공지사항</HeadLi>
-          <HeadLi>마임 매거진</HeadLi>
-          <HeadLi>마임 제품</HeadLi>
+  const isDesktop = useMediaQuery({ query: "(min-width: 1200px)" });
+  const isMobile = useMediaQuery({ query: `(max-width: 767px)` });
+  const isTablet = useMediaQuery({
+    query: `(min-width:768px and , max-width: 1199px)`,
+  });
 
-          <HeadLi>추천 페이지</HeadLi>
-        </HeadNav>
-      </ContentContainer>
+  return (
+    <>
+      <HeadContainer onMouseOver={mouseOver}>
+        <Head>
+          {/* Dongle400 Noto sans KR 500 Roboto500 폰트 */}
+          <link
+            href="https://fonts.googleapis.com/css2?family=Dongle&family=Noto+Sans+KR:wght@500&family=Roboto:wght@500&display=swap"
+            rel="stylesheet"
+          />
+        </Head>
+        <ContentContainer className={hamburger ? "isClicked" : "isUnClicked"}>
+          <HeadNav>
+            <HeadLi>마임 학성지사</HeadLi>
+            <HeadLi>공지사항</HeadLi>
+            <HeadLi>마임 매거진</HeadLi>
+            <HeadLi>마임 제품</HeadLi>
+
+            <HeadLi>추천 페이지</HeadLi>
+          </HeadNav>
+        </ContentContainer>
+      </HeadContainer>
+
       {nav.menu_1 && (
         <MenuItem
           mouseOver={mouseOver}
@@ -76,21 +87,22 @@ function NavBar({ hamburger, mouseOver, mouseLeave, nav }: Iprops) {
           hamburger={hamburger}
         />
       )}
-    </HeadContainer>
+    </>
   );
 }
 export default NavBar;
 
 const HeadContainer = styled.div`
   width: 100%;
-  background-color: ${({ theme }) => theme.container_bg};
   position: fixed;
-  z-index: 2;
+
+  background-color: ${({ theme }) => theme.container_bg};
+
   font-size: 1rem;
   font-weight: 500;
   color: #808080;
   box-shadow: 3px 3px 2px 1px;
-
+  z-index: 5;
   @media (max-width: 47.9375em) {
     //모바일
     .isClicked {
@@ -99,9 +111,7 @@ const HeadContainer = styled.div`
     .isUnClicked {
       display: none;
     }
-
     top: 9.7vh;
-
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
@@ -122,6 +132,8 @@ const HeadContainer = styled.div`
 const ContentContainer = styled.div`
   max-width: 1100px;
   margin: 0 auto;
+  position: relative;
+  z-index: 5;
   @media (max-width: 47.9375em) {
     //모바일
   }
@@ -145,21 +157,21 @@ const ContentContainer = styled.div`
 const HeadNav = styled.nav`
   display: flex;
   justify-content: space-between;
+  position: relative;
 `;
 const HeadLi = styled.li`
-
   list-style: none;
   cursor: pointer;
   text-align: center;
   border-top-left-radius: 13px;
   border-top-right-radius: 13px;
+  position: relative;
 
   @media (max-width: 47.9375em) {
     //모바일
     width: 20vw;
     padding: 1.25rem 0;
     font-size: 0.6rem;
-
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
@@ -178,9 +190,7 @@ const HeadLi = styled.li`
 
   @media (min-width: 75em) {
     // 데스크탑 일반
-
     width: 133px;
-
     padding: 1.25em 1.25em;
     /* &:nth-child(1)::before {
       content: "";
@@ -233,7 +243,6 @@ const HeadLi = styled.li`
     transition: all 0.3s;
     background-color: ${({ theme }) => theme.nav_bg};
     color: white;
-
     transform: scale(1.1);
   }
 `;

@@ -49,6 +49,7 @@ export default function Banner() {
 const Container = styled.div`
   position: relative;
   top: 10vh;
+  z-index: 1;
   @media (max-width: 47.9375em) {
     //모바일
 
