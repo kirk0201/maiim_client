@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import styled from "styled-components";
 
 interface Iprops {
   nav: INav;
   mouseOver: (e: any) => void;
-  mouseLeave: (e: any) => void;
+  mouseLeave: () => void;
   hamburger: boolean;
 }
 interface INav {
@@ -16,16 +16,36 @@ interface INav {
 }
 
 function MenuItem({ mouseOver, nav, mouseLeave }: Iprops) {
+  // const mouse = (e) => {
+  //   console.log(ref.current);
+  // };
+
+  // useEffect(() => {
+  //   window.addEventListener("mousedown", (e) => {
+  //     if (
+  //       0 <= e.clientX &&
+  //       e.clientX <= 766 &&
+  //       69 <= e.clientY &&
+  //       e.clientY <= 217
+  //     ) {
+  //       console.log("in!");
+  //     } else {
+  //       mouseLeave();
+  //       console.log("out!");
+  //     }
+  //   });
+  // });
+
   return (
     <Container
+      onMouseLeave={mouseLeave}
       className={
         nav.menu_1 || nav.menu_2 || nav.menu_3 || nav.menu_4 || nav.menu_5
           ? "active"
           : ""
       }
-      onMouseOver={mouseOver}
     >
-      <ItemContainer onMouseLeave={mouseLeave}>
+      <ItemContainer>
         {nav.menu_1 && (
           <ItemUl_01>
             <ItemLi>인사말</ItemLi>
@@ -61,14 +81,15 @@ export default MenuItem;
 
 const Container = styled.div`
   width: 100%;
-  position: relative;
+  z-index: 3;
+  position: fixed;
   color: #cfcaca;
-
   height: 15vh;
   background-color: ${({ theme }) => theme.nav_bg};
 
   @media (max-width: 47.9375em) {
     //모바일
+    top: 114px;
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
@@ -84,17 +105,19 @@ const Container = styled.div`
     width: 100%;
     position: fixed;
     color: #cfcaca;
-    height: 15vh;
-    animation: slide 0.35s linear;
+    height: 19vh;
+    top: 21vh;
+    animation: slide 0.4s linear;
     .active {
       @keyframes slide {
         0% {
-          z-index: -10;
+          /* z-index: -2; */
           top: 0%;
         }
         100% {
-          z-index: -10;
-          top: 20%;
+          /* z-index: -2; */
+
+          top: 21%;
         }
       }
     }
@@ -102,7 +125,6 @@ const Container = styled.div`
       display: none;
     }
   }
-
 `;
 
 const ItemContainer = styled.div`
@@ -114,7 +136,6 @@ const ItemContainer = styled.div`
     //모바일
 
     font-size: 0.6rem;
-
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
@@ -141,7 +162,6 @@ const ItemUl_01 = styled.ul`
     //모바일
 
     width: 20vw;
-
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
@@ -169,7 +189,6 @@ const ItemUl_02 = styled.ul`
 
     width: 20vw;
     padding-left: 20vw;
-
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
@@ -197,7 +216,6 @@ const ItemUl_03 = styled.ul`
 
     width: 20vw;
     padding-left: 40vw;
-
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
@@ -226,7 +244,6 @@ const ItemUl_04 = styled.ul`
 
     width: 20vw;
     padding-left: 60vw;
-
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
@@ -254,7 +271,6 @@ const ItemUl_05 = styled.ul`
 
     width: 20vw;
     padding-left: 80vw;
-
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {

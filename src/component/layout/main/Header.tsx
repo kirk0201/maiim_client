@@ -3,6 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styled from "styled-components";
 import NavBar from "../../common/NavBar";
+import Signup from "../signup/Signup";
 
 interface INav {
   menu_1: boolean;
@@ -13,6 +14,7 @@ interface INav {
 }
 export default function Header() {
   const [hamburger, setHamburger] = useState(false);
+  const [isSignup, setIsSignup] = useState(false);
   const [nav, setNav] = useState<INav>({
     menu_1: false,
     menu_2: false,
@@ -20,6 +22,11 @@ export default function Header() {
     menu_4: false,
     menu_5: false,
   });
+
+  const onChangeSignup = () => {
+    setIsSignup(!isSignup);
+  };
+
   const onHambugerClick = () => {
     setHamburger(!hamburger);
     setNav({
@@ -80,7 +87,7 @@ export default function Header() {
         });
     }
   };
-  const mouseLeave = (e: any): void => {
+  const mouseLeave = () => {
     setNav({
       ...nav,
       menu_1: false,
@@ -95,6 +102,7 @@ export default function Header() {
       <Head>
         <title>마임 학성지사</title>
       </Head>
+
       <Container>
         <ContentContainer>
           <ImageContainer>
@@ -102,6 +110,9 @@ export default function Header() {
           </ImageContainer>
 
           <TextSpan>학성지사</TextSpan>
+          <SignupBtn onClick={onChangeSignup}>로그인</SignupBtn>
+          {isSignup && <Signup onChangeSignup={onChangeSignup} isSignup />}
+
           <MenuContainer>
             <Image
               src="/menu.png"
@@ -112,6 +123,7 @@ export default function Header() {
           </MenuContainer>
         </ContentContainer>
       </Container>
+
       <NavBar
         hamburger={hamburger}
         mouseOver={mouseOver}
@@ -123,6 +135,7 @@ export default function Header() {
 }
 const Container = styled.div`
   position: fixed;
+  top: 0;
   width: 100%;
   z-index: 10;
 `;
@@ -133,7 +146,6 @@ const ContentContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  z-index: 10;
 `;
 
 const ImageContainer = styled.div`
@@ -175,8 +187,6 @@ const TextSpan = styled.div`
     top: 6vh;
     right: 16vw;
     font-size: 0.5rem;
-    z-index: 10;
-
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
@@ -196,11 +206,23 @@ const TextSpan = styled.div`
   @media (min-width: 75em) {
     // 데스크탑 일반
 
-
     top: 12vh;
     right: 32vw;
     font-size: 0.8rem;
-
+  }
+`;
+const SignupBtn = styled.div`
+  cursor: pointer;
+  position: fixed;
+  top: 1vw;
+  right: 5vh;
+  color: #808080;
+  transition: all 0.5;
+  &:hover {
+    color: lightgreen;
+  }
+  &:active {
+    transform: scale(0.9);
   }
 `;
 const MenuContainer = styled.div`
@@ -210,7 +232,6 @@ const MenuContainer = styled.div`
     top: 3vh;
     left: 5vw;
     width: 7vw;
-    z-index: 10;
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
