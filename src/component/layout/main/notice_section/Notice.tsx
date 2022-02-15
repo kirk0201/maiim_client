@@ -141,22 +141,31 @@ const StyledArrow = styled.div`
   position: relative;
   flex-direction: column;
   justify-content: center;
-
   padding-left: 1.5em;
+
+  &:hover {
+    animation: arrow 1s linear infinite;
+  }
   @media (max-width: 47.9375em) {
     //모바일
+    width: 5vw;
     animation: arrow 1s linear infinite;
+    &:hover {
+    }
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
     // 테블릿 세로
+    width: 3vw;
   }
 
   @media (min-width: 62em) and (max-width: 74.9375em) {
     // 테블릿 가로
+    width: 3vw;
   }
 
   @media (min-width: 75em) {
+    width: 2.5vw;
     // 데스크탑 일반
     &:hover {
       animation: arrow 1s linear infinite;
@@ -171,5 +180,4 @@ const StyledArrow = styled.div`
       top: 5px;
     }
   }
-
 `;
