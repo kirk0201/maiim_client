@@ -34,6 +34,21 @@
 // 데스크탑 일반
 }
 
+# 3버전
+
+@media (max-width: 767px) {
+//모바일
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+// 테블릿 가로 세로
+}
+
+@media (min-width: 1200px) {
+// 데스크탑 일반
+
+}
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
