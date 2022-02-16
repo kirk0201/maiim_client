@@ -95,9 +95,7 @@ export default NavBar;
 const HeadContainer = styled.div`
   width: 100%;
   position: fixed;
-
   background-color: ${({ theme }) => theme.container_bg};
-
   font-size: 1rem;
   font-weight: 500;
   color: #808080;
@@ -111,7 +109,8 @@ const HeadContainer = styled.div`
     .isUnClicked {
       display: none;
     }
-    top: 9.7vh;
+    /* top: 9.7vh; */
+    top: 10%;
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
