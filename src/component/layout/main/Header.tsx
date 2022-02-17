@@ -156,7 +156,7 @@ const ImageContainer = styled.div`
   @media (max-width: 47.9375em) {
     //모바일
 
-    padding: 1rem 0;
+    padding: 2vh 0;
     width: 50vw;
     height: 5vh;
   }
