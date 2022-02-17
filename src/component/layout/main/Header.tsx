@@ -3,7 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styled from "styled-components";
 import NavBar from "../../common/NavBar";
-import Signup from "../signup/Signup";
+import Login from "../login/Login";
 
 interface INav {
   menu_1: boolean;
@@ -14,7 +14,7 @@ interface INav {
 }
 export default function Header() {
   const [hamburger, setHamburger] = useState(false);
-  const [isSignup, setIsSignup] = useState(false);
+  const [isLoginModal, setIsLoginModal] = useState(false);
   const [nav, setNav] = useState<INav>({
     menu_1: false,
     menu_2: false,
@@ -23,8 +23,8 @@ export default function Header() {
     menu_5: false,
   });
 
-  const onChangeSignup = () => {
-    setIsSignup(!isSignup);
+  const onChangeLogin = () => {
+    setIsLoginModal(!isLoginModal);
   };
 
   const onHambugerClick = () => {
@@ -110,8 +110,8 @@ export default function Header() {
           </ImageContainer>
 
           <TextSpan>학성지사</TextSpan>
-          <SignupBtn onClick={onChangeSignup}>로그인</SignupBtn>
-          {isSignup && <Signup onChangeSignup={onChangeSignup} isSignup />}
+          <SignupBtn onClick={onChangeLogin}>로그인</SignupBtn>
+          {isLoginModal && <Login onChangeLogin={onChangeLogin} isLoginModal />}
 
           <MenuContainer>
             <Image
