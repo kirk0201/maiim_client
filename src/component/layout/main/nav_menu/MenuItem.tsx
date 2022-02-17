@@ -20,21 +20,21 @@ function MenuItem({ mouseOver, nav, mouseLeave }: Iprops) {
   //   console.log(ref.current);
   // };
 
-  useEffect(() => {
-    window.addEventListener("mousedown", (e) => {
-      if (
-        0 <= e.clientX &&
-        e.clientX <= 766 &&
-        69 <= e.clientY &&
-        e.clientY <= 217
-      ) {
-        console.log("in!");
-      } else {
-        mouseLeave();
-        console.log("out!");
-      }
-    });
-  });
+  // useEffect(() => {
+  //   window.addEventListener("mousedown", (e) => {
+  //     if (
+  //       0 <= e.clientX &&
+  //       e.clientX <= 766 &&
+  //       69 <= e.clientY &&
+  //       e.clientY <= 217
+  //     ) {
+  //       console.log("in!");
+  //     } else {
+  //       mouseLeave();
+  //       console.log("out!");
+  //     }
+  //   });
+  // });
 
   return (
     <Container
@@ -84,13 +84,14 @@ const Container = styled.div`
   z-index: 3;
   position: absolute;
   color: #cfcaca;
-  height: 15vh;
+  /* height: 15vh; */
   background-color: ${({ theme }) => theme.nav_bg};
   padding: 0.5rem 0;
 
   @media (max-width: 47.9375em) {
     //모바일
-    top: 19%;
+    /* top: 16.5%; */
+    top: 16vh;
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
@@ -295,7 +296,7 @@ const ItemUl_05 = styled.ul`
 `;
 const ItemLi = styled.li`
   text-align: center;
-  padding: 10px 10px;
+  padding: 2vh 0;
   margin-top: 5px;
   cursor: pointer;
   transition: all 0.5s;
