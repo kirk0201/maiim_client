@@ -1,12 +1,35 @@
 import React from "react";
 import styled from "styled-components";
-
-function Input({ type, placeholder, children }: any) {
+interface Iprops {
+  name?: string;
+  type: string;
+  placeholder: string;
+  onChangeData?: (e: any) => void;
+  children: any;
+  pattern?: string;
+  required?: boolean;
+}
+function Input({
+  name,
+  type,
+  placeholder,
+  onChangeData,
+  pattern,
+  required,
+  children,
+}: Iprops) {
   return (
     <>
       <Text>
         <div>{children}</div>
-        <input type={type} placeholder={placeholder}></input>
+        <input
+          name={name}
+          type={type}
+          placeholder={placeholder}
+          onChange={onChangeData}
+          pattern={pattern}
+          required={required}
+        ></input>
       </Text>
     </>
   );

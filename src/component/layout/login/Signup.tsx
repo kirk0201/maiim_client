@@ -1,14 +1,61 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Input from "../../common/Input";
-import LoginButton from "../../common/LoginButton";
+import LoginBtn from "../../common/LoginBtn";
 import SubTextAndBtn from "../../common/SubTextAndBtn";
+import axios from "axios";
 
 interface Iprops {
   onChangeSignModal: () => void;
+  onChangeData: (e: any) => void;
 }
-function Signup({ onChangeSignModal }: Iprops) {
+
+function Signup({ onChangeSignModal, onChangeData }: Iprops) {
+  const [signData, setSignData] = useState({
+    email: "",
+    password: "",
+    name: "",
+    nickName: "",
+    birth: "",
+    address: "",
+    phone: "",
+    gender: "",
+  });
+  const [disabled, setDisabled] = useState(false);
+
+  const onHandleSubmit = async (e: any) => {
+    setDisabled(true);
+    e.preventDefault();
+
+    // 중복방지를 위한 1초 지연
+    await new Promise((el) => setTimeout(el, 1000));
+    try {
+      const data = await axios.post(`${process.env.LOCALHOST}/users/join`, {
+        email: signData.email,
+        password: signData.password,
+        name: signData.name,
+        nickname: signData.nickName,
+        birth: signData.birth,
+        address: signData.address,
+        phone: signData.phone,
+        gender: signData.gender,
+      });
+      console.log("데이터가 전송되었습니다", data);
+      onChangeSignModal();
+      setDisabled(false);
+    } catch (error: any) {
+      if (error.response) {
+        const errorData = error.response;
+        alert(`에러코드[${errorData.status}] : ${errorData.data.message}`);
+        console.log("response", error.response);
+      } else if (error.request) {
+        console.log("request", error.request);
+      } else {
+        alert("회원가입이 정상적으로 처리되지 않았습니다. 다시 시도해 주세요.");
+      }
+    }
+  };
   return (
     <>
       <Container>
@@ -20,32 +67,86 @@ function Signup({ onChangeSignModal }: Iprops) {
             src="/arrow/westArrow.svg"
           ></Image>
         </ExitBtn>
-        <form>
-          <SignupText>회원가입</SignupText>
-          <Line />
-          <Input placeholder="Email" type="email">
+
+        <SignupText>회원가입</SignupText>
+        <Line />
+        <form onSubmit={onHandleSubmit}>
+          <Input
+            name="email"
+            placeholder="Email"
+            type="email"
+            onChangeData={onChangeData}
+            required={true}
+          >
             Email
           </Input>
-          <Input placeholder="Password" type="Password">
+          <Input
+            name="password"
+            placeholder="Password"
+            type="Password"
+            onChangeData={onChangeData}
+            required={true}
+          >
             password
           </Input>
-          <Input placeholder="이름" type="text">
+          <Input
+            name="name"
+            placeholder="이름"
+            type="text"
+            onChangeData={onChangeData}
+            required={true}
+          >
             Name
           </Input>
-          <Input placeholder="닉네임" type="text">
+          <Input
+            name="nickName"
+            placeholder="닉네임"
+            type="text"
+            onChangeData={onChangeData}
+            required={true}
+          >
             NickName
           </Input>
-          <Input placeholder="Birth" type="date">
-            Name
+          <Input
+            name="birth"
+            placeholder="Birth"
+            type="date"
+            onChangeData={onChangeData}
+            required={true}
+          >
+            Birth
           </Input>
-          <Input placeholder="text" type="text">
+          <Input
+            name="address"
+            placeholder="text"
+            type="text"
+            onChangeData={onChangeData}
+            required={true}
+          >
             주소
           </Input>
-          <Input placeholder="Phone" type="tel">
+          <Input
+            name="phone"
+            placeholder="000-0000-0000"
+            type="tel"
+            onChangeData={onChangeData}
+            pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
+            required={true}
+          >
             Phone
           </Input>
+          <CheckBox onChange={onChangeData}>
+            <label>
+              <input name="gender" type="radio" value={1} required />
+              남자
+            </label>
+            <label>
+              <input name="gender" type="radio" value={2} required />
+              여자
+            </label>
+          </CheckBox>
+          <LoginBtn>Sign up</LoginBtn>
         </form>
-        <LoginButton>Sign up</LoginButton>
         <BottomLine />
         <SubTextAndBtn
           onClick={onChangeSignModal}
@@ -85,4 +186,9 @@ const ExitBtn = styled.div`
   cursor: pointer;
   position: relative;
   text-align: right;
+`;
+const CheckBox = styled.div`
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-evenly;
 `;

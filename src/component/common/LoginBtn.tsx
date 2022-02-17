@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
-function LoginButton({ children }: any) {
+function LoginBtn({ children }: any) {
   return (
     <Container>
-      <Button>{children}</Button>
+      <Button type="submit">{children}</Button>
     </Container>
   );
 }
-export default LoginButton;
+export default LoginBtn;
 
 const Container = styled.div`
   width: 100%;

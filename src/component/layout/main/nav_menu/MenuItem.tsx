@@ -19,22 +19,22 @@ function MenuItem({ mouseOver, nav, mouseLeave }: Iprops) {
   // const mouse = (e) => {
   //   console.log(ref.current);
   // };
-
-  // useEffect(() => {
-  //   window.addEventListener("mousedown", (e) => {
-  //     if (
-  //       0 <= e.clientX &&
-  //       e.clientX <= 766 &&
-  //       69 <= e.clientY &&
-  //       e.clientY <= 217
-  //     ) {
-  //       console.log("in!");
-  //     } else {
-  //       mouseLeave();
-  //       console.log("out!");
-  //     }
-  //   });
-  // });
+  const mouseControl = (e: any) => {
+    if (
+      0 <= e.clientX &&
+      e.clientX <= 766 &&
+      69 <= e.clientY &&
+      e.clientY <= 212
+    ) {
+      return;
+    } else {
+      mouseLeave();
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("mousedown", mouseControl);
+    return () => window.removeEventListener("mousedown", mouseControl);
+  }, [mouseControl]);
 
   return (
     <Container
@@ -91,15 +91,17 @@ const Container = styled.div`
   @media (max-width: 47.9375em) {
     //모바일
     /* top: 16.5%; */
-    top: 16vh;
+    top: 18vh;
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
     // 테블릿 세로
+    top: 15vh;
   }
 
   @media (min-width: 62em) and (max-width: 74.9375em) {
     // 테블릿 가로
+    top: 18vh;
   }
 
   @media (min-width: 75em) {
@@ -108,7 +110,7 @@ const Container = styled.div`
     position: fixed;
     color: #cfcaca;
     height: 19vh;
-    top: 21vh;
+    top: 23vh;
     animation: slide 0.4s linear;
     .active {
       @keyframes slide {
