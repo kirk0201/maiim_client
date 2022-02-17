@@ -110,7 +110,7 @@ const HeadContainer = styled.div`
       display: none;
     }
     /* top: 9.7vh; */
-    top: 10%;
+    top: 9vh;
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
@@ -169,7 +169,7 @@ const HeadLi = styled.li`
   @media (max-width: 47.9375em) {
     //모바일
     width: 20vw;
-    padding: 1.25rem 0;
+    padding: 3vh 0;
     font-size: 0.6rem;
   }
 
