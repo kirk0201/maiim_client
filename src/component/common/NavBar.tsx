@@ -101,6 +101,7 @@ const HeadContainer = styled.div`
   color: #808080;
   box-shadow: 3px 3px 2px 1px;
   z-index: 5;
+  padding-top: 10px;
   @media (max-width: 47.9375em) {
     //모바일
     .isClicked {
@@ -110,7 +111,7 @@ const HeadContainer = styled.div`
       display: none;
     }
     /* top: 9.7vh; */
-    top: 9vh;
+    top: 10vh;
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
@@ -133,6 +134,7 @@ const ContentContainer = styled.div`
   margin: 0 auto;
   position: relative;
   z-index: 5;
+
   @media (max-width: 47.9375em) {
     //모바일
   }

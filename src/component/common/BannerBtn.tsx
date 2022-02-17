@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import { LayoutProp } from "../layout/main/notice_section/best_product/BestSlide";
 
-function BannerButton({ children }: LayoutProp) {
+function BannerBtn({ children }: LayoutProp) {
   console.log(children);
 
   return <StyledButton>{children}</StyledButton>;
 }
 
-export default BannerButton;
+export default BannerBtn;
 
 const StyledButton = styled.button`
   position: absolute;

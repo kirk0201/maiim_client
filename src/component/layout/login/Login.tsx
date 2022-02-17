@@ -7,17 +7,65 @@ import { DesktopFC, TabletFC, MobileFC } from "../../common/MediaQuery";
 import { useMediaQuery } from "react-responsive";
 import Signup from "./Signup";
 import Input from "../../common/Input";
-import LoginButton from "../../common/LoginButton";
+import LoginBtn from "../../common/LoginBtn";
 import SubTextAndBtn from "../../common/SubTextAndBtn";
-
+import axios from "axios";
 interface Iprops {
-  onChangeLogin: () => void;
+  onChangeLoginModal: () => void;
+  onChangeLoginState: (token: string, data: object) => void;
   isLoginModal: boolean;
+  isLoginState: {
+    token: string;
+    findUser: object;
+    login: boolean;
+  };
 }
-function Login({ onChangeLogin, isLoginModal }: Iprops) {
+function Login({
+  onChangeLoginModal,
+  onChangeLoginState,
+  isLoginModal,
+  isLoginState,
+}: Iprops) {
   const [isSignModal, setIsSignModal] = useState(false);
+  const [isLoginData, setIsLoginData] = useState({ email: "", password: "" });
+
   const onChangeSignModal = () => {
     setIsSignModal(!isSignModal);
+  };
+  const onChangeData = (e: any) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    console.log(isLoginData);
+    console.log(name, value);
+    setIsLoginData({ ...isLoginData, [name]: value });
+  };
+  console.log("상태", isLoginState);
+
+  const onHandleLogin = async (e: any) => {
+    e.preventDefault();
+    try {
+      const { data } = await axios.post(
+        `${process.env.LOCALHOST}/users/login`,
+        {
+          email: isLoginData.email,
+          password: isLoginData.password,
+        }
+      );
+      console.log("로그인 성공!", data);
+      onChangeLoginState(data.token, data.findUser);
+      console.log("상태", isLoginState);
+      onChangeLoginModal();
+    } catch (error: any) {
+      if (error.response) {
+        const errorData = error.response;
+        console.log(error.response);
+        alert(`오류코드 [${errorData.status}] : ${errorData.data.message}`);
+      } else if (error.request) {
+        console.log(error.request);
+      } else {
+        alert("알 수 없는 오류로 로그인에 실패하였습니다.");
+      }
+    }
   };
 
   const isDesktop = useMediaQuery({ minWidth: 1200 });
@@ -72,20 +120,36 @@ function Login({ onChangeLogin, isLoginModal }: Iprops) {
           )}
           <ContentContainer>
             {isSignModal ? (
-              <Signup onChangeSignModal={onChangeSignModal} />
+              <Signup
+                onChangeSignModal={onChangeSignModal}
+                onChangeData={onChangeData}
+              />
             ) : (
               <LoginWrapper>
                 <Text>Welcome</Text>
                 <SubText>환영합니다! 이메일과 패스워드를 입력하세요.</SubText>
-                <form>
-                  <Input type="email" placeholder="Enter your Email">
+                <form onSubmit={onHandleLogin}>
+                  <Input
+                    name="email"
+                    type="email"
+                    placeholder="Enter your Email"
+                    required={true}
+                    onChangeData={onChangeData}
+                  >
                     Email
                   </Input>
-                  <Input type="password" placeholder="Enter your Password">
+                  <Input
+                    name="password"
+                    type="password"
+                    placeholder="Enter your Password"
+                    required={true}
+                    onChangeData={onChangeData}
+                  >
                     Password
                   </Input>
+
+                  <LoginBtn>Login</LoginBtn>
                 </form>
-                <LoginButton>Login</LoginButton>
                 <SubTextAndBtn
                   left="아직 아이디가 없으신가요?"
                   right="회원가입"
@@ -93,7 +157,7 @@ function Login({ onChangeLogin, isLoginModal }: Iprops) {
                 />
                 <ExitBtn>
                   <Image
-                    onClick={onChangeLogin}
+                    onClick={onChangeLoginModal}
                     width={30}
                     height={30}
                     src="/signup/close.png"

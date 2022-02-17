@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import styled from "styled-components";
 import NavBar from "../../common/NavBar";
 import Login from "../login/Login";
+import AccountBtn from "../../common/AccountBtn";
 
 interface INav {
   menu_1: boolean;
@@ -12,7 +13,24 @@ interface INav {
   menu_4: boolean;
   menu_5: boolean;
 }
+interface IUser {
+  findUser: {
+    email: string;
+    password: string;
+    name: string;
+    nickName: string;
+    birth: string;
+    address: string;
+    phone: string;
+    gender: string;
+  };
+}
 export default function Header() {
+  const [isLoginState, setIsLoginState] = useState({
+    token: "",
+    findUser: {},
+    login: false,
+  });
   const [hamburger, setHamburger] = useState(false);
   const [isLoginModal, setIsLoginModal] = useState(false);
   const [nav, setNav] = useState<INav>({
@@ -23,7 +41,16 @@ export default function Header() {
     menu_5: false,
   });
 
-  const onChangeLogin = () => {
+  useEffect(() => {}, [isLoginState]);
+  const onChangeLoginState = (token: string, data: object) =>
+    setIsLoginState({
+      ...isLoginState,
+      token: token,
+      findUser: data,
+      login: !false,
+    });
+
+  const onChangeLoginModal = () => {
     setIsLoginModal(!isLoginModal);
   };
 
@@ -105,14 +132,6 @@ export default function Header() {
 
       <Container>
         <ContentContainer>
-          <ImageContainer>
-            <Image src="/logo.png" width="330" height="65"></Image>
-          </ImageContainer>
-
-          <TextSpan>학성지사</TextSpan>
-          <SignupBtn onClick={onChangeLogin}>로그인</SignupBtn>
-          {isLoginModal && <Login onChangeLogin={onChangeLogin} isLoginModal />}
-
           <MenuContainer>
             <Image
               src="/menu.png"
@@ -121,9 +140,27 @@ export default function Header() {
               onClick={onHambugerClick}
             ></Image>
           </MenuContainer>
+          <ImageContainer>
+            <Image src="/logo.png" width="330" height="65"></Image>
+          </ImageContainer>
+          <TextDiv>학성지사</TextDiv>
+
+          {isLoginState.login ? (
+            <AccountBtn isLoginState={isLoginState} />
+          ) : (
+            <SignupBtn onClick={onChangeLoginModal}>로그인</SignupBtn>
+          )}
+
+          {isLoginModal && (
+            <Login
+              onChangeLoginModal={onChangeLoginModal}
+              onChangeLoginState={onChangeLoginState}
+              isLoginState={isLoginState}
+              isLoginModal
+            />
+          )}
         </ContentContainer>
       </Container>
-
       <NavBar
         hamburger={hamburger}
         mouseOver={mouseOver}
@@ -141,7 +178,7 @@ const Container = styled.div`
 `;
 const ContentContainer = styled.div`
   position: absolute;
-  margin: 0 auto;
+
   background-color: ${({ theme }) => theme.container_bg};
   width: 100%;
   display: flex;
@@ -158,17 +195,15 @@ const ImageContainer = styled.div`
 
     padding: 2vh 0;
     width: 50vw;
-    height: 5vh;
+    min-height: 45px;
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
-    height: 6vh;
     // 테블릿 세로
   }
 
   @media (min-width: 62em) and (max-width: 74.9375em) {
     // 테블릿 가로
-    height: 9vh;
   }
 
   @media (min-width: 75em) {
@@ -178,28 +213,27 @@ const ImageContainer = styled.div`
     height: 12vh;
   }
 `;
-const TextSpan = styled.div`
-  position: absolute;
+const TextDiv = styled.div`
+  position: relative;
 
   @media (max-width: 47.9375em) {
     //모바일
 
-    top: 6vh;
-    right: 16vw;
+    top: 45px;
     font-size: 0.5rem;
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
     // 테블릿 세로
     top: 5vh;
-    right: 23vw;
+    right: 0;
     font-size: 0.7rem;
   }
 
   @media (min-width: 62em) and (max-width: 74.9375em) {
     // 테블릿 가로
     top: 7vh;
-    right: 28vw;
+    right: 0;
     font-size: 0.7rem;
   }
 
@@ -207,17 +241,17 @@ const TextSpan = styled.div`
     // 데스크탑 일반
 
     top: 12vh;
-    right: 32vw;
     font-size: 0.8rem;
   }
 `;
 const SignupBtn = styled.div`
   cursor: pointer;
   position: fixed;
-  top: 1vw;
-  right: 5vh;
+  top: 1vh;
+  right: 4vw;
   color: #808080;
   transition: all 0.5;
+  font-size: 0.8rem;
   &:hover {
     color: lightgreen;
   }
@@ -231,7 +265,7 @@ const MenuContainer = styled.div`
     position: absolute;
     top: 3vh;
     left: 5vw;
-    width: 7vw;
+    width: 6vw;
   }
 
   @media (min-width: 48em) and (max-width: 61.9375em) {
