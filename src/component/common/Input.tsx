@@ -5,6 +5,7 @@ interface Iprops {
   type: string;
   placeholder: string;
   onChangeData?: (e: any) => void;
+  onChangeSignData?: (e: any) => void;
   children: any;
   pattern?: string;
   required?: boolean;
@@ -17,6 +18,7 @@ function Input({
   pattern,
   required,
   children,
+  onChangeSignData,
 }: Iprops) {
   return (
     <>
@@ -26,7 +28,7 @@ function Input({
           name={name}
           type={type}
           placeholder={placeholder}
-          onChange={onChangeData}
+          onChange={onChangeData || onChangeSignData}
           pattern={pattern}
           required={required}
         ></input>
