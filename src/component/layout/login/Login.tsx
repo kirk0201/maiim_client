@@ -32,11 +32,10 @@ function Login({
   const onChangeSignModal = () => {
     setIsSignModal(!isSignModal);
   };
-  const onChangeData = (e: any) => {
+  const onChangeLoginData = (e: any) => {
     const name = e.target.name;
     const value = e.target.value;
-    console.log(isLoginData);
-    console.log(name, value);
+
     setIsLoginData({ ...isLoginData, [name]: value });
   };
   console.log("상태", isLoginState);
@@ -122,7 +121,7 @@ function Login({
             {isSignModal ? (
               <Signup
                 onChangeSignModal={onChangeSignModal}
-                onChangeData={onChangeData}
+                onChangeData={onChangeLoginData}
               />
             ) : (
               <LoginWrapper>
@@ -134,7 +133,7 @@ function Login({
                     type="email"
                     placeholder="Enter your Email"
                     required={true}
-                    onChangeData={onChangeData}
+                    onChangeData={onChangeLoginData}
                   >
                     Email
                   </Input>
@@ -143,7 +142,7 @@ function Login({
                     type="password"
                     placeholder="Enter your Password"
                     required={true}
-                    onChangeData={onChangeData}
+                    onChangeData={onChangeLoginData}
                   >
                     Password
                   </Input>

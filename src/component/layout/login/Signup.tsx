@@ -1,6 +1,6 @@
 import Image from "next/image";
-import React, { useState } from "react";
-import styled from "styled-components";
+import React, { useEffect, useState } from "react";
+import styled, { AnyStyledComponent } from "styled-components";
 import Input from "../../common/Input";
 import LoginBtn from "../../common/LoginBtn";
 import SubTextAndBtn from "../../common/SubTextAndBtn";
@@ -11,7 +11,7 @@ interface Iprops {
   onChangeData: (e: any) => void;
 }
 
-function Signup({ onChangeSignModal, onChangeData }: Iprops) {
+function Signup({ onChangeSignModal }: Iprops) {
   const [signData, setSignData] = useState({
     email: "",
     password: "",
@@ -23,6 +23,13 @@ function Signup({ onChangeSignModal, onChangeData }: Iprops) {
     gender: "",
   });
   const [disabled, setDisabled] = useState(false);
+
+  const onChangeSignData = (e: any) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    setSignData({ ...signData, [name]: value });
+  };
 
   const onHandleSubmit = async (e: any) => {
     setDisabled(true);
@@ -56,6 +63,7 @@ function Signup({ onChangeSignModal, onChangeData }: Iprops) {
       }
     }
   };
+
   return (
     <>
       <Container>
@@ -75,7 +83,7 @@ function Signup({ onChangeSignModal, onChangeData }: Iprops) {
             name="email"
             placeholder="Email"
             type="email"
-            onChangeData={onChangeData}
+            onChangeData={onChangeSignData}
             required={true}
           >
             Email
@@ -84,7 +92,7 @@ function Signup({ onChangeSignModal, onChangeData }: Iprops) {
             name="password"
             placeholder="Password"
             type="Password"
-            onChangeData={onChangeData}
+            onChangeData={onChangeSignData}
             required={true}
           >
             password
@@ -93,7 +101,7 @@ function Signup({ onChangeSignModal, onChangeData }: Iprops) {
             name="name"
             placeholder="이름"
             type="text"
-            onChangeData={onChangeData}
+            onChangeData={onChangeSignData}
             required={true}
           >
             Name
@@ -102,7 +110,7 @@ function Signup({ onChangeSignModal, onChangeData }: Iprops) {
             name="nickName"
             placeholder="닉네임"
             type="text"
-            onChangeData={onChangeData}
+            onChangeData={onChangeSignData}
             required={true}
           >
             NickName
@@ -111,7 +119,7 @@ function Signup({ onChangeSignModal, onChangeData }: Iprops) {
             name="birth"
             placeholder="Birth"
             type="date"
-            onChangeData={onChangeData}
+            onChangeData={onChangeSignData}
             required={true}
           >
             Birth
@@ -120,7 +128,7 @@ function Signup({ onChangeSignModal, onChangeData }: Iprops) {
             name="address"
             placeholder="text"
             type="text"
-            onChangeData={onChangeData}
+            onChangeData={onChangeSignData}
             required={true}
           >
             주소
@@ -129,13 +137,13 @@ function Signup({ onChangeSignModal, onChangeData }: Iprops) {
             name="phone"
             placeholder="000-0000-0000"
             type="tel"
-            onChangeData={onChangeData}
+            onChangeData={onChangeSignData}
             pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
             required={true}
           >
             Phone
           </Input>
-          <CheckBox onChange={onChangeData}>
+          <CheckBox onChange={onChangeSignData}>
             <label>
               <input name="gender" type="radio" value={1} required />
               남자
