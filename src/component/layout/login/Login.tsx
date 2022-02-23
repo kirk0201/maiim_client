@@ -250,16 +250,8 @@ const StyledSwiper = styled(Swiper)`
 // 나가기 버튼
 const ExitBtn = styled.div`
   position: absolute;
-  &:hover {
-    animation: signup 1.5s infinite;
-  }
-  @keyframes signup {
-    0% {
-      transform: scale(0.3);
-    }
-    100% {
-      transform: scale(1);
-    }
+  &:active {
+    transform: scale(0.8);
   }
   @media (max-width: 767px) {
     //모바일
