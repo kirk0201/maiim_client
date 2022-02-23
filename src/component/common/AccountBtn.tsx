@@ -16,7 +16,7 @@ export default AccountBtn;
 
 const Container = styled.button`
   position: absolute;
-  width: 15%;
+  width: 12%;
   height: 80%;
   right: 5vw;
   top: 1vh;
