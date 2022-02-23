@@ -19,22 +19,22 @@ function MenuItem({ mouseOver, nav, mouseLeave }: Iprops) {
   // const mouse = (e) => {
   //   console.log(ref.current);
   // };
-  const mouseControl = (e: any) => {
-    if (
-      0 <= e.clientX &&
-      e.clientX <= 766 &&
-      69 <= e.clientY &&
-      e.clientY <= 212
-    ) {
-      return;
-    } else {
-      mouseLeave();
-    }
-  };
-  useEffect(() => {
-    window.addEventListener("mousedown", mouseControl);
-    return () => window.removeEventListener("mousedown", mouseControl);
-  }, [mouseControl]);
+  // const mouseControl = (e: any) => {
+  //   if (
+  //     0 <= e.clientX &&
+  //     e.clientX <= 766 &&
+  //     69 <= e.clientY &&
+  //     e.clientY <= 212
+  //   ) {
+  //     return;
+  //   } else {
+  //     mouseLeave();
+  //   }
+  // };
+  // useEffect(() => {
+  //   window.addEventListener("mousedown", mouseControl);
+  //   return () => window.removeEventListener("mousedown", mouseControl);
+  // }, [mouseControl]);
 
   return (
     <Container

@@ -1,11 +1,14 @@
 import styled from "styled-components";
 import Image from "next/image";
-function AccountBtn({ isLoginState }: any) {
+import MyBtn from "./MyBtn";
+function AccountBtn({ isLoginState, onChangeAccountModal }: any) {
   return (
-    <Container>
-      <Image width={40} height={40} src="/account.svg"></Image>
-      <div>{isLoginState.findUser.name}</div>
-    </Container>
+    <>
+      <Container onClick={onChangeAccountModal}>
+        <Image width={40} height={40} src="/account.svg"></Image>
+        <div>{isLoginState.findUser.name}</div>
+      </Container>
+    </>
   );
 }
 
@@ -13,7 +16,7 @@ export default AccountBtn;
 
 const Container = styled.button`
   position: absolute;
-  width: 13%;
+  width: 15%;
   height: 80%;
   right: 5vw;
   top: 1vh;
