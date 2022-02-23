@@ -82,7 +82,7 @@ export default MenuItem;
 const Container = styled.div`
   width: 100%;
   z-index: 3;
-  position: absolute;
+  position: fixed;
   color: #cfcaca;
   /* height: 15vh; */
   background-color: ${({ theme }) => theme.nav_bg};
