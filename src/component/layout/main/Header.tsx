@@ -5,6 +5,7 @@ import styled from "styled-components";
 import NavBar from "../../common/NavBar";
 import Login from "../login/Login";
 import AccountBtn from "../../common/AccountBtn";
+import MyBtn from "../../common/MyBtn";
 
 interface INav {
   menu_1: boolean;
@@ -40,6 +41,11 @@ export default function Header() {
     menu_4: false,
     menu_5: false,
   });
+  const [accountModalState, setAccountModalState] = useState(false);
+
+  const onChangeAccountModal = () => {
+    setAccountModalState(!accountModalState);
+  };
 
   useEffect(() => {}, [isLoginState]);
   const onChangeLoginState = (token: string, data: object) =>
@@ -146,7 +152,17 @@ export default function Header() {
           <TextDiv>학성지사</TextDiv>
 
           {isLoginState.login ? (
-            <AccountBtn isLoginState={isLoginState} />
+            accountModalState ? (
+              <MyBtn
+                onChangeAccountModal={onChangeAccountModal}
+                accountModalState
+              />
+            ) : (
+              <AccountBtn
+                onChangeAccountModal={onChangeAccountModal}
+                isLoginState={isLoginState}
+              />
+            )
           ) : (
             <SignupBtn onClick={onChangeLoginModal}>로그인</SignupBtn>
           )}
