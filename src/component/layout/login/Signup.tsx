@@ -81,52 +81,52 @@ function Signup({ onChangeSignModal }: Iprops) {
         <form onSubmit={onHandleSubmit}>
           <Input
             name="email"
-            placeholder="Email"
+            placeholder="이메일을 입력하세요"
             type="email"
             onChangeData={onChangeSignData}
             required={true}
           >
-            Email
+            이메일
           </Input>
           <Input
             name="password"
-            placeholder="Password"
+            placeholder="비밀번호를 입력하세요"
             type="Password"
             onChangeData={onChangeSignData}
             required={true}
           >
-            password
+            비밀번호
           </Input>
           <Input
             name="name"
-            placeholder="이름"
+            placeholder="이름을 입력하세요"
             type="text"
             onChangeData={onChangeSignData}
             required={true}
           >
-            Name
+            이름
           </Input>
           <Input
             name="nickName"
-            placeholder="닉네임"
+            placeholder="닉네임을 입력하세요"
             type="text"
             onChangeData={onChangeSignData}
             required={true}
           >
-            NickName
+            닉네임
           </Input>
           <Input
             name="birth"
-            placeholder="Birth"
+            placeholder="생년월일을 입력하세요"
             type="date"
             onChangeData={onChangeSignData}
             required={true}
           >
-            Birth
+            생년월일
           </Input>
           <Input
             name="address"
-            placeholder="text"
+            placeholder="주소를 입력하세요"
             type="text"
             onChangeData={onChangeSignData}
             required={true}
@@ -141,7 +141,7 @@ function Signup({ onChangeSignModal }: Iprops) {
             pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
             required={true}
           >
-            Phone
+            휴대전화
           </Input>
           <CheckBox onChange={onChangeSignData}>
             <label>
