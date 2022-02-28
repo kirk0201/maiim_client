@@ -125,29 +125,29 @@ function Login({
               />
             ) : (
               <LoginWrapper>
-                <Text>Welcome</Text>
+                <Text>로그인</Text>
                 <SubText>환영합니다! 이메일과 패스워드를 입력하세요.</SubText>
                 <form onSubmit={onHandleLogin}>
                   <Input
                     name="email"
                     type="email"
-                    placeholder="Enter your Email"
+                    placeholder="이메일을 입력하세요"
                     required={true}
                     onChangeData={onChangeLoginData}
                   >
-                    Email
+                    이메일
                   </Input>
                   <Input
                     name="password"
                     type="password"
-                    placeholder="Enter your Password"
+                    placeholder="비밀번호를 입력하세요"
                     required={true}
                     onChangeData={onChangeLoginData}
                   >
-                    Password
+                    비밀번호
                   </Input>
 
-                  <LoginBtn>Login</LoginBtn>
+                  <LoginBtn>로그인</LoginBtn>
                 </form>
                 <SubTextAndBtn
                   left="아직 아이디가 없으신가요?"
