@@ -20,12 +20,15 @@ interface Iprops {
     login: boolean;
   };
 }
-function Login({
+const Backdrop = () => {
+  return <Container></Container>;
+};
+const Overlay = ({
   onChangeLoginModal,
   onChangeLoginState,
   isLoginModal,
   isLoginState,
-}: Iprops) {
+}: Iprops) => {
   const [isSignModal, setIsSignModal] = useState(false);
   const [isLoginData, setIsLoginData] = useState({ email: "", password: "" });
 
@@ -73,101 +76,247 @@ function Login({
     minWidth: 768,
     maxWidth: 1199,
   });
-  return (
-    <Container>
-      <SignupWrapper>
-        <SignupContainer>
-          {(isDesktop || isTablet) && (
-            <ImageContainer>
-              <StyledSwiper
-                modules={[Autoplay, Pagination]}
-                pagination={{ clickable: true }}
-                slidesPerView={1}
-                autoplay={{ delay: 3000 }}
-                loop
-              >
-                <SwiperSlide>
-                  <Image
-                    width={700}
-                    height={700}
-                    src="/signup/vision_04.jpg"
-                  ></Image>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image
-                    width={700}
-                    height={700}
-                    src="/signup/vision_02.jpg"
-                  ></Image>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image
-                    width={700}
-                    height={700}
-                    src="/signup/vision_03.jpg"
-                  ></Image>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image
-                    width={700}
-                    height={700}
-                    src="/signup/vision_01.jpg"
-                  ></Image>
-                </SwiperSlide>
-              </StyledSwiper>
-            </ImageContainer>
-          )}
-          <ContentContainer>
-            {isSignModal ? (
-              <Signup
-                onChangeSignModal={onChangeSignModal}
-                onChangeData={onChangeLoginData}
-              />
-            ) : (
-              <LoginWrapper>
-                <Text>로그인</Text>
-                <SubText>환영합니다! 이메일과 패스워드를 입력하세요.</SubText>
-                <form onSubmit={onHandleLogin}>
-                  <Input
-                    name="email"
-                    type="email"
-                    placeholder="이메일을 입력하세요"
-                    required={true}
-                    onChangeData={onChangeLoginData}
-                  >
-                    이메일
-                  </Input>
-                  <Input
-                    name="password"
-                    type="password"
-                    placeholder="비밀번호를 입력하세요"
-                    required={true}
-                    onChangeData={onChangeLoginData}
-                  >
-                    비밀번호
-                  </Input>
+ return <SignupWrapper>
+      <SignupContainer>
+        {(isDesktop || isTablet) && (
+          <ImageContainer>
+            <StyledSwiper
+              modules={[Autoplay, Pagination]}
+              pagination={{ clickable: true }}
+              slidesPerView={1}
+              autoplay={{ delay: 3000 }}
+              loop
+            >
+              <SwiperSlide>
+                <Image
+                  width={700}
+                  height={700}
+                  src="/signup/vision_04.jpg"
+                ></Image>
+              </SwiperSlide>
+              <SwiperSlide>
+                <Image
+                  width={700}
+                  height={700}
+                  src="/signup/vision_02.jpg"
+                ></Image>
+              </SwiperSlide>
+              <SwiperSlide>
+                <Image
+                  width={700}
+                  height={700}
+                  src="/signup/vision_03.jpg"
+                ></Image>
+              </SwiperSlide>
+              <SwiperSlide>
+                <Image
+                  width={700}
+                  height={700}
+                  src="/signup/vision_01.jpg"
+                ></Image>
+              </SwiperSlide>
+            </StyledSwiper>
+          </ImageContainer>
+        )}
+        <ContentContainer>
+          {isSignModal ? (
+            <Signup
+              onChangeSignModal={onChangeSignModal}
+              onChangeData={onChangeLoginData}
+            />
+          ) : (
+            <LoginWrapper>
+              <Text>로그인</Text>
+              <SubText>환영합니다! 이메일과 패스워드를 입력하세요.</SubText>
+              <form onSubmit={onHandleLogin}>
+                <Input
+                  name="email"
+                  type="email"
+                  placeholder="이메일을 입력하세요"
+                  required={true}
+                  onChangeData={onChangeLoginData}
+                >
+                  이메일
+                </Input>
+                <Input
+                  name="password"
+                  type="password"
+                  placeholder="비밀번호를 입력하세요"
+                  required={true}
+                  onChangeData={onChangeLoginData}
+                >
+                  비밀번호
+                </Input>
 
-                  <LoginBtn>로그인</LoginBtn>
-                </form>
-                <SubTextAndBtn
-                  left="아직 아이디가 없으신가요?"
-                  right="회원가입"
-                  onClick={onChangeSignModal}
-                />
-                <ExitBtn>
-                  <Image
-                    onClick={onChangeLoginModal}
-                    width={30}
-                    height={30}
-                    src="/signup/close.png"
-                  ></Image>
-                </ExitBtn>
-              </LoginWrapper>
-            )}
-          </ContentContainer>
-        </SignupContainer>
-      </SignupWrapper>
-    </Container>
+                <LoginBtn>로그인</LoginBtn>
+              </form>
+              <SubTextAndBtn
+                left="아직 아이디가 없으신가요?"
+                right="회원가입"
+                onClick={onChangeSignModal}
+              />
+              <ExitBtn>
+                <Image
+                  onClick={onChangeLoginModal}
+                  width={30}
+                  height={30}
+                  src="/signup/close.png"
+                ></Image>
+              </ExitBtn>
+            </LoginWrapper>
+          )}
+        </ContentContainer>
+      </SignupContainer>
+    </SignupWrapper>
+}
+function Login({
+  onChangeLoginModal,
+  onChangeLoginState,
+  isLoginModal,
+  isLoginState,
+}: Iprops) {
+  // const [isSignModal, setIsSignModal] = useState(false);
+  // const [isLoginData, setIsLoginData] = useState({ email: "", password: "" });
+
+  // const onChangeSignModal = () => {
+  //   setIsSignModal(!isSignModal);
+  // };
+  // const onChangeLoginData = (e: any) => {
+  //   const name = e.target.name;
+  //   const value = e.target.value;
+
+  //   setIsLoginData({ ...isLoginData, [name]: value });
+  // };
+  // console.log("상태", isLoginState);
+
+  // const onHandleLogin = async (e: any) => {
+  //   e.preventDefault();
+  //   try {
+  //     const { data } = await axios.post(
+  //       `${process.env.LOCALHOST}/users/login`,
+  //       {
+  //         email: isLoginData.email,
+  //         password: isLoginData.password,
+  //       }
+  //     );
+  //     console.log("로그인 성공!", data);
+  //     onChangeLoginState(data.token, data.findUser);
+  //     console.log("상태", isLoginState);
+  //     onChangeLoginModal();
+  //   } catch (error: any) {
+  //     if (error.response) {
+  //       const errorData = error.response;
+  //       console.log(error.response);
+  //       alert(`오류코드 [${errorData.status}] : ${errorData.data.message}`);
+  //     } else if (error.request) {
+  //       console.log(error.request);
+  //     } else {
+  //       alert("알 수 없는 오류로 로그인에 실패하였습니다.");
+  //     }
+  //   }
+  // };
+
+  // const isDesktop = useMediaQuery({ minWidth: 1200 });
+  // const isMobile = useMediaQuery({ maxWidth: 767 });
+  // const isTablet = useMediaQuery({
+  //   minWidth: 768,
+  //   maxWidth: 1199,
+  // });
+  return (
+    // <Container>
+    // <SignupWrapper>
+    //   <SignupContainer>
+    //     {(isDesktop || isTablet) && (
+    //       <ImageContainer>
+    //         <StyledSwiper
+    //           modules={[Autoplay, Pagination]}
+    //           pagination={{ clickable: true }}
+    //           slidesPerView={1}
+    //           autoplay={{ delay: 3000 }}
+    //           loop
+    //         >
+    //           <SwiperSlide>
+    //             <Image
+    //               width={700}
+    //               height={700}
+    //               src="/signup/vision_04.jpg"
+    //             ></Image>
+    //           </SwiperSlide>
+    //           <SwiperSlide>
+    //             <Image
+    //               width={700}
+    //               height={700}
+    //               src="/signup/vision_02.jpg"
+    //             ></Image>
+    //           </SwiperSlide>
+    //           <SwiperSlide>
+    //             <Image
+    //               width={700}
+    //               height={700}
+    //               src="/signup/vision_03.jpg"
+    //             ></Image>
+    //           </SwiperSlide>
+    //           <SwiperSlide>
+    //             <Image
+    //               width={700}
+    //               height={700}
+    //               src="/signup/vision_01.jpg"
+    //             ></Image>
+    //           </SwiperSlide>
+    //         </StyledSwiper>
+    //       </ImageContainer>
+    //     )}
+    //     <ContentContainer>
+    //       {isSignModal ? (
+    //         <Signup
+    //           onChangeSignModal={onChangeSignModal}
+    //           onChangeData={onChangeLoginData}
+    //         />
+    //       ) : (
+    //         <LoginWrapper>
+    //           <Text>로그인</Text>
+    //           <SubText>환영합니다! 이메일과 패스워드를 입력하세요.</SubText>
+    //           <form onSubmit={onHandleLogin}>
+    //             <Input
+    //               name="email"
+    //               type="email"
+    //               placeholder="이메일을 입력하세요"
+    //               required={true}
+    //               onChangeData={onChangeLoginData}
+    //             >
+    //               이메일
+    //             </Input>
+    //             <Input
+    //               name="password"
+    //               type="password"
+    //               placeholder="비밀번호를 입력하세요"
+    //               required={true}
+    //               onChangeData={onChangeLoginData}
+    //             >
+    //               비밀번호
+    //             </Input>
+
+    //             <LoginBtn>로그인</LoginBtn>
+    //           </form>
+    //           <SubTextAndBtn
+    //             left="아직 아이디가 없으신가요?"
+    //             right="회원가입"
+    //             onClick={onChangeSignModal}
+    //           />
+    //           <ExitBtn>
+    //             <Image
+    //               onClick={onChangeLoginModal}
+    //               width={30}
+    //               height={30}
+    //               src="/signup/close.png"
+    //             ></Image>
+    //           </ExitBtn>
+    //         </LoginWrapper>
+    //       )}
+    //     </ContentContainer>
+    //   </SignupContainer>
+    // </SignupWrapper>
+    // </Container>
   );
 }
 export default Login;
