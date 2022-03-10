@@ -6,6 +6,7 @@ import NavBar from "../../common/NavBar";
 import Login from "../login/Login";
 import AccountBtn from "../../common/AccountBtn";
 import MyBtn from "../../common/MyBtn";
+import Portal from "../../HOC/Portal";
 
 interface INav {
   menu_1: boolean;

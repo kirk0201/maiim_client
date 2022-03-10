@@ -48,10 +48,10 @@ class MyDocument extends Document {
           />
         </Head>
         <body>
-          <div id="backdrop-root"></div>
-          <div id="overlay-root"></div>
           <Main />
+          <div id="overlay-root"></div>
           <NextScript />
+          <div id="backdrop-root"></div>
         </body>
       </Html>
     );
