@@ -51,7 +51,6 @@ class MyDocument extends Document {
           <Main />
           <div id="overlay-root"></div>
           <NextScript />
-          <div id="backdrop-root"></div>
         </body>
       </Html>
     );

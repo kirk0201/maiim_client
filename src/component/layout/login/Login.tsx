@@ -329,27 +329,3 @@ const LoginWrapper = styled.div`
     display: block;
   }
 `;
-// const SubText_02 = styled(SubText)`
-//   width: 100%;
-//   display: flex;
-//   justify-content: space-between;
-//   padding-top: 1rem;
-//   font-size: 0.9em;
-
-//   .signupText {
-//     color: #111727b5;
-//     font-weight: 600;
-//     &:hover {
-//       animation: signup 2s infinite linear;
-//     }
-
-//   }
-//   @keyframes signup {
-//     0% {
-//       transform: scale(0.9);
-//     }
-//     100% {
-//       transform: scale(1.1);
-//     }
-//   }
-// `
