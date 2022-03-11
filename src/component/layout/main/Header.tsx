@@ -167,14 +167,18 @@ export default function Header() {
           ) : (
             <SignupBtn onClick={onChangeLoginModal}>로그인</SignupBtn>
           )}
-
+          {/* <Portal>
+            <div>Test</div>
+          </Portal> */}
           {isLoginModal && (
-            <Login
-              onChangeLoginModal={onChangeLoginModal}
-              onChangeLoginState={onChangeLoginState}
-              isLoginState={isLoginState}
-              isLoginModal
-            />
+            <Portal>
+              <Login
+                onChangeLoginModal={onChangeLoginModal}
+                onChangeLoginState={onChangeLoginState}
+                isLoginState={isLoginState}
+                isLoginModal
+              />
+            </Portal>
           )}
         </ContentContainer>
       </Container>
