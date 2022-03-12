@@ -178,11 +178,12 @@ function Login({
 export default Login;
 
 const Container = styled.div`
-  position: absolute;
+  top: 0;
+  position: fixed;
   width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.6);
-  z-index: 50;
+  z-index: 500;
   display: flex;
   justify-content: center;
   align-items: center;
