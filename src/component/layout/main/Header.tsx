@@ -6,6 +6,7 @@ import NavBar from "../../common/NavBar";
 import Login from "../login/Login";
 import AccountBtn from "../../common/AccountBtn";
 import MyBtn from "../../common/MyBtn";
+import Portal from "../../HOC/Portal";
 
 interface INav {
   menu_1: boolean;
@@ -166,14 +167,15 @@ export default function Header() {
           ) : (
             <SignupBtn onClick={onChangeLoginModal}>로그인</SignupBtn>
           )}
-
           {isLoginModal && (
-            <Login
-              onChangeLoginModal={onChangeLoginModal}
-              onChangeLoginState={onChangeLoginState}
-              isLoginState={isLoginState}
-              isLoginModal
-            />
+            <Portal>
+              <Login
+                onChangeLoginModal={onChangeLoginModal}
+                onChangeLoginState={onChangeLoginState}
+                isLoginState={isLoginState}
+                isLoginModal
+              />
+            </Portal>
           )}
         </ContentContainer>
       </Container>

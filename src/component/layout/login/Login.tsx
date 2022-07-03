@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ReactDOM from "react-dom";
 import styled from "styled-components";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -10,6 +11,7 @@ import Input from "../../common/Input";
 import LoginBtn from "../../common/LoginBtn";
 import SubTextAndBtn from "../../common/SubTextAndBtn";
 import axios from "axios";
+
 interface Iprops {
   onChangeLoginModal: () => void;
   onChangeLoginState: (token: string, data: object) => void;
@@ -20,12 +22,14 @@ interface Iprops {
     login: boolean;
   };
 }
+
 function Login({
   onChangeLoginModal,
   onChangeLoginState,
   isLoginModal,
   isLoginState,
 }: Iprops) {
+  const [render, setRender] = useState(false);
   const [isSignModal, setIsSignModal] = useState(false);
   const [isLoginData, setIsLoginData] = useState({ email: "", password: "" });
 
@@ -73,6 +77,7 @@ function Login({
     minWidth: 768,
     maxWidth: 1199,
   });
+
   return (
     <Container>
       <SignupWrapper>
@@ -173,11 +178,12 @@ function Login({
 export default Login;
 
 const Container = styled.div`
-  position: absolute;
+  top: 0;
+  position: fixed;
   width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.6);
-  z-index: 50;
+  z-index: 500;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -324,27 +330,3 @@ const LoginWrapper = styled.div`
     display: block;
   }
 `;
-// const SubText_02 = styled(SubText)`
-//   width: 100%;
-//   display: flex;
-//   justify-content: space-between;
-//   padding-top: 1rem;
-//   font-size: 0.9em;
-
-//   .signupText {
-//     color: #111727b5;
-//     font-weight: 600;
-//     &:hover {
-//       animation: signup 2s infinite linear;
-//     }
-
-//   }
-//   @keyframes signup {
-//     0% {
-//       transform: scale(0.9);
-//     }
-//     100% {
-//       transform: scale(1.1);
-//     }
-//   }
-// `;
