@@ -110,7 +110,7 @@ const Container = styled.div`
     position: fixed;
     color: #cfcaca;
     height: 19vh;
-    top: 23vh;
+    top: 21vh;
     animation: slide 0.4s linear;
     .active {
       @keyframes slide {

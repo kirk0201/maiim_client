@@ -19,12 +19,6 @@ interface INav {
 }
 
 function NavBar({ hamburger, mouseOver, mouseLeave, nav }: Iprops) {
-  const isDesktop = useMediaQuery({ query: "(min-width: 1200px)" });
-  const isMobile = useMediaQuery({ query: `(max-width: 767px)` });
-  const isTablet = useMediaQuery({
-    query: `(min-width:768px and , max-width: 1199px)`,
-  });
-
   return (
     <>
       <HeadContainer onMouseOver={mouseOver}>
